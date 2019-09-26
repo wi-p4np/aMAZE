@@ -3,14 +3,17 @@ Platformer Game
 """
 import arcade
 
+from game.player.player import Player
+
+
 # Constants
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
 SCREEN_TITLE = "Platformer"
 
-TILE_SCALING = 0.5
+SCALING = 0.5
 SPRITE_PIXEL_SIZE = 128
-GRID_PIXEL_SIZE = (SPRITE_PIXEL_SIZE * TILE_SCALING)
+GRID_PIXEL_SIZE = (SPRITE_PIXEL_SIZE * SCALING)
 
 # Movement speed of player, in pixels per frame
 PLAYER_MOVEMENT_SPEED = 5
@@ -28,6 +31,7 @@ class MyGame(arcade.Window):
 
         self.wall_list = None
         self.player_list = None
+        self.player = None
 
         # Separate variable that holds the player sprite
         self.player_sprite = None
@@ -45,9 +49,9 @@ class MyGame(arcade.Window):
         # Used to keep track of our scrolling
         self.view_bottom = 0
         self.view_left = 0
+        self.player = Player("assets/sprites/enemies/bee.png", SCALING, 60, 60)
 
         self.wall_list = arcade.SpriteList()
-
 
         # --- Load in a map from the tiled editor ---
 
@@ -55,10 +59,14 @@ class MyGame(arcade.Window):
         walls_layer_name = 'Walls'
 
         # Read in the tiled map
-        my_map = arcade.read_tiled_map(map_name, TILE_SCALING)
+        my_map = arcade.read_tiled_map(map_name, SCALING)
 
    
-        self.wall_list = arcade.generate_sprites(my_map, walls_layer_name, TILE_SCALING)
+        self.wall_list = arcade.generate_sprites(my_map, walls_layer_name, SCALING)
+
+        self.physics_engine = arcade.PhysicsEnginePlatformer(self.player,
+                                                             self.wall_list, 0)
+
 
 
     def on_draw(self):
@@ -69,6 +77,19 @@ class MyGame(arcade.Window):
 
         # Draw our sprites
         self.wall_list.draw()
+
+        self.player.draw()
+
+
+    def on_key_press(self, key, modifiers):
+        self.player.on_key_press(key)
+
+    def on_key_release(self, key, modifiers):
+        self.player.on_key_release(key)
+
+    def update(self, delta_time):
+        self.physics_engine.update()
+        self.player.update()
 
 
 def main():
