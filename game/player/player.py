@@ -17,6 +17,8 @@ class Player(arcade.Sprite):
             self.change_x = PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.UP or key == arcade.key.W:
             self.change_y = PLAYER_MOVEMENT_SPEED
+        elif key == arcade.key.DOWN or key == arcade.key.S:
+            self.change_y = -PLAYER_MOVEMENT_SPEED
 
     def on_key_release(self, key):
         if key == arcade.key.LEFT or key == arcade.key.A:
@@ -25,3 +27,8 @@ class Player(arcade.Sprite):
             self.change_x = 0
         elif key == arcade.key.UP or key == arcade.key.W:
             self.change_y = 0
+        elif key == arcade.key.DOWN or key == arcade.key.S:
+            self.change_y = 0
+
+    def update(self):
+        pass
