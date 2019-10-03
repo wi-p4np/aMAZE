@@ -63,6 +63,7 @@ def _read_object_layers(xml, tileset):
             object_tile = ObjectTile(
                 _object.attrib['id'],
                 _object.attrib.get('name'),
+                _object.attrib.get('type'),
                 tileset.tiles[int(_object.attrib['gid'])],
                 int(_object.attrib['x']) + layer.offset_x,
                 int(_object.attrib['y']) + layer.offset_y,

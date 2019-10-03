@@ -1,9 +1,10 @@
 
 class ObjectTile:
-    def __init__(self, id, name, image, x, y, width, height, visible):
+    def __init__(self, id, name, type, image, x, y, width, height, visible):
         self.id = id
         self.name = name
         self.image = image
+        self.type = type
         self.x = x
         self.y = y
         self.width = width

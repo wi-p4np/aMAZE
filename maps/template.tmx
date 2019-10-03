@@ -147,7 +147,7 @@
   </data>
  </layer>
  <objectgroup id="3" name="Items" offsetx="365" offsety="34">
-  <object id="4" gid="12" x="-34" y="371" width="128" height="128">
+  <object id="4" type="Coin" gid="12" x="-34" y="371" width="128" height="128">
    <properties>
     <property name="door" value="1"/>
     <property name="name" value=""/>
