@@ -2,12 +2,17 @@ import arcade
 
 from game.consts import TILE_SCALE
 from game.map.parser.parser import MapParser
+from game.map.map_object import MapObject
 
 
 class Map:
     def __init__(self):
         self.walls_layer = arcade.SpriteList()
         self.objects_layer = arcade.SpriteList()
+
+    def draw(self):
+        self.walls_layer.draw()
+        self.objects_layer.draw()
 
     @staticmethod
     def load(file_path):
@@ -26,9 +31,9 @@ class Map:
                 _map.walls_layer.append(sprite)
 
         for tile in config.object_layers['Items'].objects:
-            sprite = arcade.Sprite(tile.image, TILE_SCALE)
-            sprite.left = tile.x * TILE_SCALE
-            sprite.bottom = tile.y * TILE_SCALE
+            sprite = MapObject(tile.image, TILE_SCALE,
+                tile.x * TILE_SCALE, tile.y * TILE_SCALE,
+                tile.properties)
 
             _map.objects_layer.append(sprite)
         return _map

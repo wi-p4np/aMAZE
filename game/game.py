@@ -31,8 +31,7 @@ class MyGame(arcade.Window):
 
     def on_draw(self):
         arcade.start_render()
-        self.map.walls_layer.draw()
-        self.map.objects_layer.draw()
+        self.map.draw()
         self.player.draw()
 
     def on_key_press(self, key, modifiers):
