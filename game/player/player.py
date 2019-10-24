@@ -31,4 +31,12 @@ class Player(arcade.Sprite):
             self.change_y = 0
 
     def update(self):
+        #sgem_hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.gem_list)
         pass
+
+
+    #def collision_gem(sprite1: arcade.Sprite, sprite2: arcade.Sprite):
+        #if 
+        #arcade.check_for_collision(sprite1: arcade.Sprite, sprite2: arcade.Sprite)
+        
+

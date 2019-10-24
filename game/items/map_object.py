@@ -8,3 +8,6 @@ class MapObject(arcade.Sprite):
         self.left = x
         self.bottom = y
         self.properties = properties
+
+    def on_hit(self):
+        self.remove_from_sprite_lists()
