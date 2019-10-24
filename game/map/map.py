@@ -4,6 +4,7 @@ from game.consts import TILE_SCALE
 from game.map.parser.parser import MapParser
 from game.items.map_object import MapObject
 from game.items.gem import Gem
+from game.items.star import Star
 
 
 class Map:
@@ -35,6 +36,9 @@ class Map:
             if tile.type == "Gem":
                 gem = Gem(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
                 _map.objects_layer.append(gem)
+            elif tile.type == "Star":
+                star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
+                _map.objects_layer.append(star)
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
                     tile.x * TILE_SCALE, tile.y * TILE_SCALE,
