@@ -47,20 +47,4 @@ class Map:
                 _map.objects_layer.append(sprite)
         return _map
 
-"""
-class Dog:
-    def __init__(self):
-        print("hał hał")
-
-dog1 = Dog()
-
-
-class NamedDog(Dog):
-    def __init__(self, name):
-        super().__init__()
-        self.name = name
-
-dog2 = NamedDog("Burek")
-"""
-
 
