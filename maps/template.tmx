@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="5">
- <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="12" columns="0">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="6">
+ <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="13" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter_rounded.png"/>
@@ -40,6 +40,9 @@
   </tile>
   <tile id="11">
    <image width="128" height="128" source="../assets/sprites/items/coinGold.png"/>
+  </tile>
+  <tile id="12">
+   <image width="128" height="128" source="../assets/sprites/enemies/fishBlue.png"/>
   </tile>
  </tileset>
  <layer id="1" name="Walls" width="10" height="10">
@@ -147,11 +150,12 @@
   </data>
  </layer>
  <objectgroup id="3" name="Items" offsetx="365" offsety="34">
-  <object id="4" type="Coin" gid="12" x="-34" y="371" width="128" height="128">
+  <object id="4" type="Coin" gid="12" x="-3.69697" y="377.061" width="128" height="128">
    <properties>
     <property name="door" value="1"/>
     <property name="name" value=""/>
    </properties>
   </object>
+  <object id="5" type="Enemy" gid="13" x="253.902" y="259.061" width="128" height="128" rotation="271.849"/>
  </objectgroup>
 </map>
