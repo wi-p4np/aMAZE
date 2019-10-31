@@ -6,6 +6,7 @@ import arcade
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
 from game.map.map import Map
 from game.player.player import Player
+from game.gui.gui import MyGui
 
 
 class MyGame(arcade.Window):
@@ -28,11 +29,13 @@ class MyGame(arcade.Window):
         self.map = Map.load("./maps/template.tmx")
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player,
                                                              self.map.walls_layer, 0)
+        self.gui = MyGui()
 
     def on_draw(self):
         arcade.start_render()
         self.map.draw()
         self.player.draw()
+        self.gui.draw()
 
     def on_key_press(self, key, modifiers):
         self.player.on_key_press(key)
