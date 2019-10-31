@@ -22,7 +22,6 @@ class Player(arcade.Sprite):
             self.change_y = -PLAYER_MOVEMENT_SPEED
 
     def on_key_release(self, key):
-        ScoreManager.score += 1
 
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.change_x = 0

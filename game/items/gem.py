@@ -1,4 +1,5 @@
 from game.items.map_object import MapObject
+from game.managers.score_manager import ScoreManager
 
 
 class Gem(MapObject):
@@ -6,6 +7,5 @@ class Gem(MapObject):
         super().__init__(asset_path, scale, x, y, properties)
 
     def on_hit(self):
-        print("I've found a gem")
+        ScoreManager.score += 1
         super().on_hit()
-

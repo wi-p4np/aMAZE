@@ -42,70 +42,69 @@
    <image width="128" height="128" source="../assets/sprites/items/coinGold.png"/>
   </tile>
   <tile id="12">
-   <image width="128" height="128" source="../../training/arcade/images/items/gemBlue.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/gemBlue.png"/>
   </tile>
   <tile id="13">
-   <image width="128" height="128" source="../../training/arcade/images/items/gemGreen.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/gemGreen.png"/>
   </tile>
   <tile id="14">
-   <image width="128" height="128" source="../../training/arcade/images/items/gemRed.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/gemRed.png"/>
   </tile>
   <tile id="15">
-   <image width="128" height="128" source="../../training/arcade/images/items/gemYellow.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/gemYellow.png"/>
   </tile>
   <tile id="16">
-   <image width="128" height="128" source="../../training/arcade/images/items/coinBronze.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/coinBronze.png"/>
   </tile>
   <tile id="17">
-   <image width="128" height="128" source="../../training/arcade/images/items/coinGold.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/coinGold.png"/>
   </tile>
   <tile id="18">
-   <image width="128" height="128" source="../../training/arcade/images/items/coinSilver.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/coinSilver.png"/>
   </tile>
   <tile id="19">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagGreen_down.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagGreen_down.png"/>
   </tile>
   <tile id="20">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagGreen1.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagGreen1.png"/>
   </tile>
   <tile id="21">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagGreen2.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagGreen2.png"/>
   </tile>
   <tile id="22">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagRed_down.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagRed_down.png"/>
   </tile>
   <tile id="23">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagRed1.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagRed1.png"/>
   </tile>
   <tile id="24">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagRed2.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagRed2.png"/>
   </tile>
   <tile id="25">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagYellow_down.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagYellow_down.png"/>
   </tile>
   <tile id="26">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagYellow1.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagYellow1.png"/>
   </tile>
   <tile id="27">
-   <image width="128" height="128" source="../../training/arcade/images/items/flagYellow2.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/flagYellow2.png"/>
   </tile>
   <tile id="32">
-   <image width="128" height="128" source="../../training/arcade/images/items/keyBlue.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/keyBlue.png"/>
   </tile>
   <tile id="33">
-   <image width="128" height="128" source="../../training/arcade/images/items/keyGreen.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/keyGreen.png"/>
   </tile>
   <tile id="34">
-   <image width="128" height="128" source="../../training/arcade/images/items/keyRed.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/keyRed.png"/>
   </tile>
   <tile id="35">
-   <image width="128" height="128" source="../../training/arcade/images/items/keyYellow.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/keyYellow.png"/>
   </tile>
   <tile id="36">
-   <image width="128" height="128" source="../../training/arcade/images/items/star.png"/>
+   <image width="128" height="128" source="../assets/sprites/items/star.png"/>
   </tile>
  </tileset>
- <tileset firstgid="38" source="../../training/game_2/myStuff.tsx"/>
  <layer id="1" name="Walls" width="10" height="10">
   <data>
    <tile gid="2"/>
