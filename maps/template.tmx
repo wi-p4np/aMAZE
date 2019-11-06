@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="11">
- <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="33" columns="0">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="12">
+ <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="34" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter_rounded.png"/>
@@ -103,6 +103,9 @@
   </tile>
   <tile id="36">
    <image width="128" height="128" source="../assets/sprites/items/star.png"/>
+  </tile>
+  <tile id="37">
+   <image width="64" height="64" source="../assets/sprites/items/full_heart.png"/>
   </tile>
  </tileset>
  <layer id="1" name="Walls" width="10" height="10">
@@ -221,5 +224,6 @@
   <object id="8" type="Gem" gid="14" x="380" y="888" width="128" height="128"/>
   <object id="9" type="Star" gid="37" x="632.333" y="424.667" width="128" height="128"/>
   <object id="10" type="Star" gid="37" x="531" y="654" width="128" height="128"/>
+  <object id="11" type="Heart" gid="38" x="830" y="503" width="107" height="112"/>
  </objectgroup>
 </map>
