@@ -25,7 +25,6 @@ class HealthBar():
         ]
 
         self.hearts_list = arcade.SpriteList()
-        #self.health = 2
 
         for x in range(MAX_HEALTH):
             heart = arcade.Sprite(SPRITES['full'], HEARTS_SCALING)
