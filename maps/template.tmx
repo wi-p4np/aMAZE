@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="11">
- <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="33" columns="0">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="16">
+ <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="34" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter_rounded.png"/>
@@ -103,6 +103,9 @@
   </tile>
   <tile id="36">
    <image width="128" height="128" source="../assets/sprites/items/star.png"/>
+  </tile>
+  <tile id="37">
+   <image width="128" height="128" source="../assets/sprites/items/signExit.png"/>
   </tile>
  </tileset>
  <layer id="1" name="Walls" width="10" height="10">
@@ -210,16 +213,23 @@
   </data>
  </layer>
  <objectgroup id="3" name="Items">
+  <object id="6" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
   <object id="4" type="Coin" gid="12" x="258" y="451" width="128" height="128">
    <properties>
     <property name="door" value="1"/>
     <property name="name" value=""/>
    </properties>
   </object>
-  <object id="6" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
   <object id="7" type="Gem" gid="14" x="-6" y="656" width="128" height="128"/>
   <object id="8" type="Gem" gid="14" x="380" y="888" width="128" height="128"/>
   <object id="9" type="Star" gid="37" x="632.333" y="424.667" width="128" height="128"/>
   <object id="10" type="Star" gid="37" x="531" y="654" width="128" height="128"/>
+  <object id="14" type="Coin" gid="12" x="258" y="451" width="128" height="128">
+   <properties>
+    <property name="door" value="1"/>
+    <property name="name" value=""/>
+   </properties>
+  </object>
+  <object id="15" type="Finish" gid="38" x="424" y="425" width="128" height="128"/>
  </objectgroup>
 </map>

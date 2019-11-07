@@ -7,6 +7,7 @@ from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
 from game.map.map import Map
 from game.player.player import Player
 from game.gui.gui import MyGui
+from game.managers.score_manager import ScoreManager
 
 
 class MyGame(arcade.Window):
@@ -44,10 +45,14 @@ class MyGame(arcade.Window):
         self.player.on_key_release(key)
 
     def update(self, delta_time):
+        if not ScoreManager.gameIsActive:
+            return
+
         self.physics_engine.update()
         self.player.update()
 
-        hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
+        hit_list = arcade.check_for_collision_with_list(
+            self.player, self.map.objects_layer)
         for hit in hit_list:
             hit.on_hit()
 

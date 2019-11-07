@@ -5,6 +5,7 @@ from game.map.parser.parser import MapParser
 from game.items.map_object import MapObject
 from game.items.gem import Gem
 from game.items.star import Star
+from game.items.finish import Finish
 
 
 class Map:
@@ -39,6 +40,9 @@ class Map:
             elif tile.type == "Star":
                 star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
                 _map.objects_layer.append(star)
+            elif tile.type == "Finish":
+                finish = Finish(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
+                _map.objects_layer.append(finish)
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
                     tile.x * TILE_SCALE, tile.y * TILE_SCALE,
@@ -46,5 +50,4 @@ class Map:
 
                 _map.objects_layer.append(sprite)
         return _map
-
 
