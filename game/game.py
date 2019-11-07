@@ -1,6 +1,3 @@
-"""
-Platformer Game
-"""
 import arcade
 
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
@@ -10,8 +7,6 @@ from game.gui.gui import MyGui
 
 
 class MyGame(arcade.Window):
-    """
-    """
 
     def __init__(self):
 
@@ -25,7 +20,6 @@ class MyGame(arcade.Window):
 
     def setup(self):
         self.player = Player("assets/sprites/enemies/bee.png", TILE_SCALE, 128, 128)
-
         self.map = Map.load("./maps/template.tmx")
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player,
                                                              self.map.walls_layer, 0)
@@ -46,14 +40,21 @@ class MyGame(arcade.Window):
     def update(self, delta_time):
         self.physics_engine.update()
         self.player.update()
+        self.map.update()
+
+        enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
+        if len(enemy_hit_list) > 0:
+            self.player.center_x = 128
+            self.player.center_y = 128
+
+        for enemy in enemy_hit_list:
+            enemy.on_hit()
 
         hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
         for hit in hit_list:
             hit.on_hit()
 
-
 def main():
-    """ Main method """
     window = MyGame()
     window.setup()
     arcade.run()

@@ -35,7 +35,6 @@ def _read_layers(xml, tileset):
             tile = None
             x, y = index % layer.width, int(index / layer.width)
 
-            # check if selected tile has an image assigned
             if 'gid' in _tile.attrib:
 
                 tile = Tile(
