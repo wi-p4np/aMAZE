@@ -41,7 +41,7 @@ class Map:
                 star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
                 _map.objects_layer.append(star)
             elif tile.type == "Heart":
-                heart = Heart(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
+                heart = Heart(tile.image, 1.0, tile.x * TILE_SCALE, tile.y, tile.properties)
                 _map.objects_layer.append(heart)
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
