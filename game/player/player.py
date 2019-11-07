@@ -1,4 +1,5 @@
 import arcade
+from game.managers.score_manager import ScoreManager
 
 PLAYER_MOVEMENT_SPEED = 5
 
@@ -21,6 +22,7 @@ class Player(arcade.Sprite):
             self.change_y = -PLAYER_MOVEMENT_SPEED
 
     def on_key_release(self, key):
+
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.change_x = 0
         elif key == arcade.key.RIGHT or key == arcade.key.D:

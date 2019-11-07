@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="6">
- <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="13" columns="0">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="12">
+ <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="34" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter_rounded.png"/>
   </tile>
   <tile id="1">
-   <properties>
-    <property name="test" value="test"/>
-   </properties>
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter.png"/>
   </tile>
   <tile id="2">
@@ -42,6 +39,69 @@
    <image width="128" height="128" source="../assets/sprites/items/coinGold.png"/>
   </tile>
   <tile id="12">
+   <image width="128" height="128" source="../assets/sprites/items/gemBlue.png"/>
+  </tile>
+  <tile id="13">
+   <image width="128" height="128" source="../assets/sprites/items/gemGreen.png"/>
+  </tile>
+  <tile id="14">
+   <image width="128" height="128" source="../assets/sprites/items/gemRed.png"/>
+  </tile>
+  <tile id="15">
+   <image width="128" height="128" source="../assets/sprites/items/gemYellow.png"/>
+  </tile>
+  <tile id="16">
+   <image width="128" height="128" source="../assets/sprites/items/coinBronze.png"/>
+  </tile>
+  <tile id="17">
+   <image width="128" height="128" source="../assets/sprites/items/coinGold.png"/>
+  </tile>
+  <tile id="18">
+   <image width="128" height="128" source="../assets/sprites/items/coinSilver.png"/>
+  </tile>
+  <tile id="19">
+   <image width="128" height="128" source="../assets/sprites/items/flagGreen_down.png"/>
+  </tile>
+  <tile id="20">
+   <image width="128" height="128" source="../assets/sprites/items/flagGreen1.png"/>
+  </tile>
+  <tile id="21">
+   <image width="128" height="128" source="../assets/sprites/items/flagGreen2.png"/>
+  </tile>
+  <tile id="22">
+   <image width="128" height="128" source="../assets/sprites/items/flagRed_down.png"/>
+  </tile>
+  <tile id="23">
+   <image width="128" height="128" source="../assets/sprites/items/flagRed1.png"/>
+  </tile>
+  <tile id="24">
+   <image width="128" height="128" source="../assets/sprites/items/flagRed2.png"/>
+  </tile>
+  <tile id="25">
+   <image width="128" height="128" source="../assets/sprites/items/flagYellow_down.png"/>
+  </tile>
+  <tile id="26">
+   <image width="128" height="128" source="../assets/sprites/items/flagYellow1.png"/>
+  </tile>
+  <tile id="27">
+   <image width="128" height="128" source="../assets/sprites/items/flagYellow2.png"/>
+  </tile>
+  <tile id="32">
+   <image width="128" height="128" source="../assets/sprites/items/keyBlue.png"/>
+  </tile>
+  <tile id="33">
+   <image width="128" height="128" source="../assets/sprites/items/keyGreen.png"/>
+  </tile>
+  <tile id="34">
+   <image width="128" height="128" source="../assets/sprites/items/keyRed.png"/>
+  </tile>
+  <tile id="35">
+   <image width="128" height="128" source="../assets/sprites/items/keyYellow.png"/>
+  </tile>
+  <tile id="36">
+   <image width="128" height="128" source="../assets/sprites/items/star.png"/>
+  </tile>
+  <tile id="37">
    <image width="128" height="128" source="../assets/sprites/enemies/fishBlue.png"/>
   </tile>
  </tileset>
@@ -149,13 +209,13 @@
    <tile/>
   </data>
  </layer>
- <objectgroup id="3" name="Items" offsetx="365" offsety="34">
-  <object id="4" type="Coin" gid="12" x="-3.69697" y="377.061" width="128" height="128">
-   <properties>
-    <property name="door" value="1"/>
-    <property name="name" value=""/>
-   </properties>
-  </object>
-  <object id="5" type="Enemy" gid="13" x="253.902" y="259.061" width="128" height="128" rotation="271.849"/>
+ <objectgroup id="3" name="Items">
+  <object id="4" type="Coin" gid="12" x="258" y="451" width="128" height="128"/>
+  <object id="6" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
+  <object id="7" type="Gem" gid="14" x="-6" y="656" width="128" height="128"/>
+  <object id="8" type="Gem" gid="14" x="380" y="888" width="128" height="128"/>
+  <object id="9" type="Star" gid="36" x="632.333" y="424.667" width="128" height="128"/>
+  <object id="10" type="Star" gid="36" x="531" y="654" width="128" height="128"/>
+  <object id="11" type="Enemy" gid="37" x="445" y="454" width="128" height="128"/>
  </objectgroup>
 </map>

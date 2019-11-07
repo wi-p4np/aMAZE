@@ -3,7 +3,7 @@ import arcade
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
 from game.map.map import Map
 from game.player.player import Player
-from game.enemies.enemies import Enemy
+from game.gui.gui import MyGui
 
 
 class MyGame(arcade.Window):
@@ -21,12 +21,15 @@ class MyGame(arcade.Window):
     def setup(self):
         self.player = Player("assets/sprites/enemies/bee.png", TILE_SCALE, 128, 128)
         self.map = Map.load("./maps/template.tmx")
-        self.physics_engine = arcade.PhysicsEnginePlatformer(self.player, self.map.walls_layer, 0)
+        self.physics_engine = arcade.PhysicsEnginePlatformer(self.player,
+                                                             self.map.walls_layer, 0)
+        self.gui = MyGui()
 
     def on_draw(self):
         arcade.start_render()
         self.map.draw()
         self.player.draw()
+        self.gui.draw()
 
     def on_key_press(self, key, modifiers):
         self.player.on_key_press(key)
@@ -39,14 +42,18 @@ class MyGame(arcade.Window):
         self.player.update()
         self.map.update()
 
-        hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
-        if len(hit_list) > 0:
+        enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
+        if len(enemy_hit_list) > 0:
             self.player.center_x = 128
             self.player.center_y = 128
 
-            for enemy in hit_list:
-                enemy.on_hit()
-            
+        for enemy in enemy_hit_list:
+            enemy.on_hit()
+
+        hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
+        for hit in hit_list:
+            hit.on_hit()
+
 def main():
     window = MyGame()
     window.setup()

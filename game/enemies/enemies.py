@@ -1,6 +1,6 @@
 import arcade
 
-from game.map.map_object import MapObject
+from game.items.map_object import MapObject
 
 ENEMY_MOVEMENT_SPEED = 5
 
