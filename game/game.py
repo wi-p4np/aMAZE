@@ -46,6 +46,7 @@ class MyGame(arcade.Window):
     def update(self, delta_time):
         self.physics_engine.update()
         self.player.update()
+        self.gui.update(delta_time)
 
         hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
         for hit in hit_list:
