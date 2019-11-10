@@ -47,17 +47,15 @@ class MyGame(arcade.Window):
             # collided with a wall
             pass
 
-        enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
-        if len(enemy_hit_list) > 0:
-            self.player.center_x = 128
-            self.player.center_y = 128
-
-        for enemy in enemy_hit_list:
-            enemy.on_hit()
-
         hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
         for hit in hit_list:
             hit.on_hit()
+
+        enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
+        for enemy in enemy_hit_list:
+            player.on_hit()
+            enemy.on_hit()
+
 
 def main():
     window = MyGame()
