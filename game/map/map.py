@@ -6,7 +6,7 @@ from game.enemies.enemies import Enemy
 from game.items.map_object import MapObject
 from game.items.gem import Gem
 from game.items.star import Star
-
+from game.gui.components.score import Score
 
 class Map:
     def __init__(self):
@@ -52,6 +52,10 @@ class Map:
             elif tile.type == "Star":
                 star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
                 _map.objects_layer.append(star)
+
+            elif tile.type == "Coin":
+                coin = Score(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
+                _map.objects_layer.append(coin)
 
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,

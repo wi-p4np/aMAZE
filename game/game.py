@@ -7,6 +7,7 @@ from game.gui.gui import MyGui
 from game.physics import PhysicsEngineSimple
 
 
+
 class MyGame(arcade.Window):
 
     def __init__(self):
@@ -40,6 +41,7 @@ class MyGame(arcade.Window):
     def update(self, delta_time):
         self.player.update()
         self.map.update()
+        self.gui.update()
 
         # handle collision with walls
         hit_list = self.physics_engine.update()
