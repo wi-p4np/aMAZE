@@ -1,4 +1,3 @@
-
 class ObjectLayer:
     def __init__(self, id, name, offset_x, offset_y):
         self.id = id

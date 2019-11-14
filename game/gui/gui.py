@@ -15,5 +15,5 @@ class MyGui:
         self.gem_score.draw()
         self.coins_score.draw()
 
-    def update():
-        pass
+    def update(self, delta_time):
+        self.health_bar.update()
