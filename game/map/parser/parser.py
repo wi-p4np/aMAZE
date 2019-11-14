@@ -59,7 +59,6 @@ def _read_object_layers(xml, tileset):
                             _layer.attrib.get('offsetx', 0), _layer.attrib.get('offsety', 0))
 
         for _object in _layer.findall("object"):
-            print(_object.attrib)
             object_tile = ObjectTile(
                 _object.attrib['id'],
                 _object.attrib.get('name'),

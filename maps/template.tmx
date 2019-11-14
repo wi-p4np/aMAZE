@@ -103,7 +103,7 @@
   </tile>
   <tile id="37">
    <image width="64" height="64" source="../assets/sprites/items/full_heart.png"/>
-  </tile
+  </tile>
   <tile id="38">
    <image width="128" height="128" source="../assets/sprites/enemies/fishBlue.png"/>
   </tile>

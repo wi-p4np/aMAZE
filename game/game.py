@@ -1,6 +1,7 @@
 import arcade
 
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
+from game.managers.score_manager import ScoreManager
 from game.map.map import Map
 from game.player.player import Player
 from game.gui.gui import MyGui
@@ -50,6 +51,7 @@ class MyGame(arcade.Window):
 
         enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
         if len(enemy_hit_list) > 0:
+            ScoreManager.health -= 1;
             self.player.center_x = 128
             self.player.center_y = 128
 
