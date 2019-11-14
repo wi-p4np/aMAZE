@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="36">
- <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="34" columns="0">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="39">
+ <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="35" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter_rounded.png"/>
@@ -103,6 +103,9 @@
   </tile>
   <tile id="37">
    <image width="128" height="128" source="../assets/sprites/enemies/fishBlue.png"/>
+  </tile>
+  <tile id="38">
+   <image width="64" height="64" source="../assets/sprites/items/block_05.png"/>
   </tile>
  </tileset>
  <layer id="1" name="Walls" width="10" height="10">
@@ -209,7 +212,7 @@
    <tile/>
   </data>
  </layer>
- <objectgroup id="3" name="Items" locked="1" offsetx="4.51515" offsety="2.24242">
+ <objectgroup id="3" name="Items" offsetx="4.51515" offsety="2.24242">
   <object id="6" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
   <object id="7" type="Gem" gid="14" x="-6" y="656" width="128" height="128"/>
   <object id="8" type="Gem" gid="14" x="380" y="888" width="128" height="128"/>

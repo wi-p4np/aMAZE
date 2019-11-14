@@ -42,7 +42,7 @@ class MyGame(arcade.Window):
 
     def update(self, delta_time):
         self.player.update()
-        self.map.update()
+        self.map.update(delta_time)
 
         # handle collision with walls
         hit_list = self.physics_engine.update()
@@ -52,9 +52,7 @@ class MyGame(arcade.Window):
 
         destroyable_hit_list = self.objects_physics_engine.update()
         for hit in destroyable_hit_list:
-            self.player.center_x -= 20
             print('moved x', self.player.center_x)
-            self.player.center_y -= 20
             print(hit.health)
             hit.on_hit()
 

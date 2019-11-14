@@ -22,10 +22,15 @@ class Map:
         self.enemies_layer.draw()
         self.collidable_objects_layer.draw()
 
-    def update(self):
-        self.objects_layer.update()
-        self.enemies_layer.update()
-        self.collidable_objects_layer.update()
+    def update(self, delta_time):
+        for _object in self.objects_layer:
+            _object.update(delta_time)
+
+        for _object in self.enemies_layer:
+            _object.update(delta_time)
+
+        for _object in self.collidable_objects_layer:
+            _object.update(delta_time)
 
     @staticmethod
     def load(file_path):
