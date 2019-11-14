@@ -23,6 +23,6 @@ class Tileset:
 
         for tile in _tileset.findall('tile'):
             tile_image = tile.find("image")
-            tileset.add_tile(int(tile.attrib['id'])+1, tile_image.attrib['source'])
+            tileset.add_tile(int(tile.attrib['id']), tile_image.attrib['source'])
         return tileset
 
