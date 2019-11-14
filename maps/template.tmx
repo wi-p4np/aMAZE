@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="12">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="23">
  <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="34" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -217,5 +217,12 @@
   <object id="9" type="Star" gid="36" x="632.333" y="424.667" width="128" height="128"/>
   <object id="10" type="Star" gid="36" x="531" y="654" width="128" height="128"/>
   <object id="11" type="Enemy" gid="37" x="445" y="454" width="128" height="128"/>
+  <object id="12" type="Coin" gid="19" x="772" y="268" width="128" height="128"/>
+  <object id="13" type="Coin" gid="19" x="1018" y="516" width="128" height="128"/>
+  <object id="14" type="Coin" gid="17" x="1014" y="762" width="128" height="128"/>
+  <object id="16" type="Coin" gid="17" x="1020" y="126" width="128" height="128"/>
+  <object id="20" type="Coin" gid="18" x="770" y="892" width="128" height="128"/>
+  <object id="21" type="Coin" gid="18" x="1152" y="384" width="128" height="128"/>
+  <object id="22" type="Coin" gid="18" x="774" y="132" width="128" height="128"/>
  </objectgroup>
 </map>
