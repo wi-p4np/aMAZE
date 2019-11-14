@@ -214,8 +214,8 @@
   <object id="6" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
   <object id="7" type="Gem" gid="14" x="-6" y="656" width="128" height="128"/>
   <object id="8" type="Gem" gid="14" x="380" y="888" width="128" height="128"/>
-  <object id="9" type="Star" gid="36" x="632.333" y="424.667" width="128" height="128"/>
-  <object id="10" type="Star" gid="36" x="531" y="654" width="128" height="128"/>
-  <object id="11" type="Enemy" gid="37" x="445" y="454" width="128" height="128"/>
+  <object id="9" type="Star" gid="37" x="632.333" y="424.667" width="128" height="128"/>
+  <object id="10" type="Star" gid="37" x="531" y="654" width="128" height="128"/>
+  <object id="11" type="Enemy" gid="38" x="445" y="454" width="128" height="128"/>
  </objectgroup>
 </map>

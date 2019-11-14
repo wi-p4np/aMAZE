@@ -42,15 +42,15 @@ class Map:
 
         for tile in config.object_layers['Items'].objects:
             if tile.type == "Enemy":
-                enemy = Enemy(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
+                enemy = Enemy(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.enemies_layer.append(enemy)
 
             elif tile.type == "Gem":
-                gem = Gem(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
+                gem = Gem(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(gem)
 
             elif tile.type == "Star":
-                star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
+                star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(star)
 
             else:
