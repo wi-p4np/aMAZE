@@ -1,8 +1,8 @@
 import arcade
-from game.items.invincibilityCandy import InvincibilityCandy
+from game.managers.score_manager import ScoreManager
 
 
-SPRITE = 'assets/sprites/other/lollipopGreen.png'
+SPRITE = 'assets/sprites/items/lollipopGreen.png'
 CANDY_SCALING = 1.0
 
 
@@ -13,13 +13,12 @@ class InvincibilityCandyBar():
         self.candy_sprite.center_x = 600
         self.candy_sprite.center_y = 600
 
-        self.update_candy()
-
-    def update_candy(self, deltaTime):
-        if InvincibilityCandy.invincibilityTimer > 0:
-            InvincibilityCandy.invincibilityTimer = InvincibilityCandy.invincibilityTimer - deltaTime
-            if InvincibilityCandy.invincibilityTimer <= 0:
-                InvincibilityCandy.isInvincible = False
+    def update(self, deltaTime):
+        if ScoreManager.invincibilityTimer > 0:
+            ScoreManager.invincibilityTimer = ScoreManager.invincibilityTimer - deltaTime
+            if ScoreManager.invincibilityTimer <= 0:
+                ScoreManager.isInvincible = False
 
     def draw(self):
-        self.candy_list.draw()
+        if ScoreManager.isInvincible:
+            self.candy_sprite.draw()

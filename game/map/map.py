@@ -53,12 +53,15 @@ class Map:
             elif tile.type == "Star":
                 star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
                 _map.objects_layer.append(star)
+
             elif tile.type == "Finish":
                 finish = Finish(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
                 _map.objects_layer.append(finish)
+
             elif tile.type == "InvincibilityCandy":
                 invincibilityCandy = InvincibilityCandy(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
                 _map.objects_layer.append(invincibilityCandy)
+                
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
                     tile.x * TILE_SCALE, tile.y * TILE_SCALE,

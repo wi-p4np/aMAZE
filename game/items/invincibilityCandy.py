@@ -8,6 +8,6 @@ class InvincibilityCandy(MapObject):
         super().__init__(asset_path, scale, x, y, properties)
 
     def on_hit(self):
-        ScoreManager.InvincibilityTimer = MAX_INVINCIBILITY_TIMER
+        ScoreManager.invincibilityTimer = MAX_INVINCIBILITY_TIMER
         ScoreManager.isInvincible = True
         super().on_hit()

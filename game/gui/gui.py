@@ -18,5 +18,5 @@ class MyGui:
         self.coins_score.draw()
         self.invincibility_candy_bar.draw()
 
-    def update():
-        pass
+    def update(self, delta_time):
+        self.invincibility_candy_bar.update(delta_time)
