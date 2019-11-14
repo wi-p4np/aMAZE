@@ -39,6 +39,7 @@ class MyGame(arcade.Window):
 
     def update(self, delta_time):
         self.player.update()
+        self.gui.update(delta_time)
         self.map.update()
 
         # handle collision with walls
