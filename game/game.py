@@ -1,3 +1,6 @@
+"""
+Platformer Game
+"""
 import arcade
 
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
@@ -39,6 +42,9 @@ class MyGame(arcade.Window):
         self.player.on_key_release(key)
 
     def update(self, delta_time):
+        if not ScoreManager.gameIsActive:
+            return
+
         self.player.update()
         self.gui.update(delta_time)
         self.map.update()

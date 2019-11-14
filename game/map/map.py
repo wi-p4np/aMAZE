@@ -6,6 +6,7 @@ from game.enemies.enemies import Enemy
 from game.items.map_object import MapObject
 from game.items.gem import Gem
 from game.items.star import Star
+from game.items.finish import Finish
 from game.items.heart import Heart
 
 
@@ -53,9 +54,15 @@ class Map:
             elif tile.type == "Star":
                 star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(star)
+
+            elif tile.type == "Finish":
+                finish = Finish(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
+                _map.objects_layer.append(finish)
+
             elif tile.type == "Heart":
-                heart = Heart(tile.image, 1.0, tile.x * TILE_SCALE, tile.y, tile.properties)
+                heart = Heart(tile.image, 1.0, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(heart)
+
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
                     tile.x * TILE_SCALE, tile.y * TILE_SCALE,
