@@ -1,4 +1,5 @@
 import arcade
+
 from game.managers.score_manager import ScoreManager
 
 PLAYER_MOVEMENT_SPEED = 5
@@ -31,6 +32,12 @@ class Player(arcade.Sprite):
             self.change_y = 0
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.change_y = 0
+
+    def on_hit(self):
+        if not ScoreManager.isInvincible:
+            self.center_x = 128
+            self.center_y = 128
+            ScoreManager.health -= 1;
 
     def update(self):
         pass
