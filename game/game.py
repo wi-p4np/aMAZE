@@ -1,14 +1,12 @@
-"""
-Platformer Game
-"""
+from game.managers.score_manager import ScoreManager
 import arcade
 
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
-from game.managers.score_manager import ScoreManager
 from game.map.map import Map
 from game.player.player import Player
 from game.gui.gui import MyGui
 from game.physics import PhysicsEngineSimple
+
 
 
 class MyGame(arcade.Window):
@@ -68,6 +66,7 @@ class MyGame(arcade.Window):
         for hit in hit_list:
             hit.on_hit()
 
+
 def main():
     window = MyGame()
     window.setup()
@@ -76,3 +75,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

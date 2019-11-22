@@ -8,6 +8,7 @@ from game.items.gem import Gem
 from game.items.star import Star
 from game.items.finish import Finish
 from game.items.heart import Heart
+from game.gui.components.score import Score
 
 
 class Map:
@@ -54,6 +55,10 @@ class Map:
             elif tile.type == "Star":
                 star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(star)
+
+            elif tile.type == "Coin":
+                coin = Score(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y, tile.properties)
+                _map.objects_layer.append(coin)
 
             elif tile.type == "Finish":
                 finish = Finish(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
