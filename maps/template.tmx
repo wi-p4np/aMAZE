@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="17">
- <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="35" columns="0">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="23">
+ <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="34" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter_rounded.png"/>
@@ -105,6 +105,15 @@
    <image width="128" height="128" source="../assets/sprites/items/star.png"/>
   </tile>
   <tile id="37">
+   <image width="128" height="128" source="../assets/sprites/items/signExit.png"/>
+  </tile>
+  <tile id="38">
+   <image width="64" height="64" source="../assets/sprites/items/full_heart.png"/>
+  </tile>
+  <tile id="39">
+   <image width="128" height="128" source="../assets/sprites/enemies/fishBlue.png"/>
+  </tile>
+  <tile id="40">
    <image width="128" height="128" source="../assets/sprites/items/lollipopGreen.png"/>
   </tile>
  </tileset>
@@ -213,8 +222,8 @@
   </data>
  </layer>
  <objectgroup id="3" name="Items">
-  <object id="6" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
-  <object id="4" type="Coin" gid="12" x="258" y="451" width="128" height="128">
+  <object id="1" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
+  <object id="2" type="Coin" gid="12" x="258" y="451" width="128" height="128">
    <properties>
     <property name="door" value="1"/>
     <property name="name" value=""/>
@@ -230,6 +239,9 @@
     <property name="name" value=""/>
    </properties>
   </object>
-  <object id="16" type="InvincibilityCandy" gid="37" x="391.89" y="262.409" width="70" height="70"/>
+  <object id="16" type="InvincibilityCandy" gid="41" x="391.89" y="262.409" width="70" height="70"/>
+  <object id="10" type="Finish" gid="38" x="661.333" y="991.667" width="128" height="128"/>
+  <object id="11" type="Heart" gid="39" x="830" y="503" width="107" height="112"/>
+  <object id="12" type="Enemy" gid="40" x="318.333" y="644.667" width="128" height="128"/>
  </objectgroup>
 </map>

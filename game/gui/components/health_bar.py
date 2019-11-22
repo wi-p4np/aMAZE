@@ -1,7 +1,8 @@
 import arcade
+from game.managers.score_manager import ScoreManager
+from game.managers.score_manager import MAX_HEALTH
 
 
-MAX_HEALTH = 3
 HEARTS_SCALING = 1.0
 
 SPRITES = {
@@ -24,7 +25,6 @@ class HealthBar():
         ]
 
         self.hearts_list = arcade.SpriteList()
-        self.health = 2
 
         for x in range(MAX_HEALTH):
             heart = arcade.Sprite(SPRITES['full'], HEARTS_SCALING)
@@ -34,23 +34,16 @@ class HealthBar():
             heart.center_y = 600
             self.hearts_list.append(heart)
 
-        self.update_hearts()
-
-    def update_hearts(self):
-        for x in range(MAX_HEALTH):
-            sprite = self.hearts_list.sprite_list[x]
-
-            if x + 1 <= self.health:
-                sprite.set_texture(TEXTURE_FULL)
-            else:
-                sprite.set_texture(TEXTURE_EMPTY)
+        self.update()
 
     def draw(self):
-
-        # self.hearts_list.sprite_list[0]
-        #object.__dict__ - returns an object in form of a dict
-
         self.hearts_list.draw()
 
     def update(self):
-        pass
+        for x in range(MAX_HEALTH):
+            sprite = self.hearts_list.sprite_list[x]
+
+            if x + 1 <= ScoreManager.health:
+                sprite.set_texture(TEXTURE_FULL)
+            else:
+                sprite.set_texture(TEXTURE_EMPTY)

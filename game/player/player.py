@@ -1,6 +1,6 @@
 import arcade
+
 from game.managers.score_manager import ScoreManager
-from game.items.invincibilityCandy import InvincibilityCandy
 
 PLAYER_MOVEMENT_SPEED = 5
 
@@ -34,9 +34,10 @@ class Player(arcade.Sprite):
             self.change_y = 0
 
     def on_hit(self):
-        if not InvincibilityCandy.isInvincible:
-            self.player.center_x = 128
-            self.player.center_y = 128
+        if not ScoreManager.isInvincible:
+            self.center_x = 128
+            self.center_y = 128
+            ScoreManager.health -= 1;
 
     def update(self):
         pass
