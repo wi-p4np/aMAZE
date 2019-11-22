@@ -102,6 +102,12 @@
    <image width="128" height="128" source="../assets/sprites/items/star.png"/>
   </tile>
   <tile id="37">
+   <image width="128" height="128" source="../assets/sprites/items/signExit.png"/>
+  </tile>
+  <tile id="38">
+   <image width="64" height="64" source="../assets/sprites/items/full_heart.png"/>
+  </tile>
+  <tile id="39">
    <image width="128" height="128" source="../assets/sprites/enemies/fishBlue.png"/>
   </tile>
  </tileset>
@@ -210,19 +216,27 @@
   </data>
  </layer>
  <objectgroup id="3" name="Items">
-  <object id="4" type="Coin" gid="12" x="258" y="451" width="128" height="128"/>
-  <object id="6" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
-  <object id="7" type="Gem" gid="14" x="-6" y="656" width="128" height="128"/>
-  <object id="8" type="Gem" gid="14" x="380" y="888" width="128" height="128"/>
-  <object id="9" type="Star" gid="36" x="632.333" y="424.667" width="128" height="128"/>
-  <object id="10" type="Star" gid="36" x="531" y="654" width="128" height="128"/>
-  <object id="11" type="Enemy" gid="37" x="445" y="454" width="128" height="128"/>
-  <object id="12" type="Coin" gid="19" x="772" y="268" width="128" height="128"/>
-  <object id="13" type="Coin" gid="19" x="1018" y="516" width="128" height="128"/>
-  <object id="14" type="Coin" gid="17" x="1014" y="762" width="128" height="128"/>
-  <object id="16" type="Coin" gid="17" x="1020" y="126" width="128" height="128"/>
-  <object id="20" type="Coin" gid="18" x="770" y="892" width="128" height="128"/>
-  <object id="21" type="Coin" gid="18" x="1152" y="384" width="128" height="128"/>
-  <object id="22" type="Coin" gid="18" x="774" y="132" width="128" height="128"/>
+  <object id="1" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
+  <object id="2" type="Coin" gid="12" x="258" y="451" width="128" height="128">
+   <properties>
+    <property name="door" value="1"/>
+    <property name="name" value=""/>
+   </properties>
+  </object>
+  <object id="3" type="Coin" gid="12" x="258" y="451" width="128" height="128"/>
+  <object id="4" type="Gem" gid="13" x="494.333" y="282.333" width="128" height="128"/>
+  <object id="5" type="Gem" gid="14" x="-6" y="656" width="128" height="128"/>
+  <object id="6" type="Gem" gid="14" x="380" y="888" width="128" height="128"/>
+  <object id="7" type="Star" gid="37" x="632.333" y="424.667" width="128" height="128"/>
+  <object id="8" type="Star" gid="37" x="531" y="654" width="128" height="128"/>
+  <object id="9" type="Coin" gid="12" x="258" y="451" width="128" height="128">
+   <properties>
+    <property name="door" value="1"/>
+    <property name="name" value=""/>
+   </properties>
+  </object>
+  <object id="10" type="Finish" gid="38" x="661.333" y="991.667" width="128" height="128"/>
+  <object id="11" type="Heart" gid="39" x="830" y="503" width="107" height="112"/>
+  <object id="12" type="Enemy" gid="40" x="318.333" y="644.667" width="128" height="128"/>
  </objectgroup>
 </map>

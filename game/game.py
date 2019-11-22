@@ -1,3 +1,4 @@
+from game.managers.score_manager import ScoreManager
 import arcade
 
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
@@ -39,9 +40,12 @@ class MyGame(arcade.Window):
         self.player.on_key_release(key)
 
     def update(self, delta_time):
+        if not ScoreManager.gameIsActive:
+            return
+
         self.player.update()
+        self.gui.update(delta_time)
         self.map.update()
-        self.gui.update()
 
         # handle collision with walls
         hit_list = self.physics_engine.update()
@@ -51,6 +55,7 @@ class MyGame(arcade.Window):
 
         enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
         if len(enemy_hit_list) > 0:
+            ScoreManager.health -= 1;
             self.player.center_x = 128
             self.player.center_y = 128
 
@@ -61,6 +66,7 @@ class MyGame(arcade.Window):
         for hit in hit_list:
             hit.on_hit()
 
+
 def main():
     window = MyGame()
     window.setup()
@@ -69,3 +75,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

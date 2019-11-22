@@ -16,5 +16,6 @@ class MyGui:
         self.gem_score.draw()
         self.score_label.draw()
 
-    def update(self):
+    def update(self, delta_time):
         self.score_label.update()
+        self.health_bar.update()
