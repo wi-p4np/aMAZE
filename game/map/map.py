@@ -3,6 +3,7 @@ import arcade
 from game.consts import TILE_SCALE
 from game.enemies.enemies import Enemy
 from game.gui.components.score import Score
+from game.items.destroyable_wall import DestroyableWall
 from game.items.finish import Finish
 from game.items.gem import Gem
 from game.items.heart import Heart
@@ -17,15 +18,23 @@ class Map:
         self.walls_layer = arcade.SpriteList()
         self.objects_layer = arcade.SpriteList()
         self.enemies_layer = arcade.SpriteList()
+        self.collidable_objects_layer = arcade.SpriteList()
 
     def draw(self):
         self.walls_layer.draw()
         self.objects_layer.draw()
         self.enemies_layer.draw()
+        self.collidable_objects_layer.draw()
 
-    def update(self):
-        self.objects_layer.update()
-        self.enemies_layer.update()
+    def update(self, delta_time):
+        for _object in self.objects_layer:
+            _object.update(delta_time)
+
+        for _object in self.enemies_layer:
+            _object.update(delta_time)
+
+        for _object in self.collidable_objects_layer:
+            _object.update(delta_time)
 
     @staticmethod
     def load(file_path):
@@ -56,13 +65,17 @@ class Map:
                 star = Star(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(star)
 
+            elif tile.type == "DestroyableWall":
+                destroyable_wall = DestroyableWall(tile.image, 1.0, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
+                _map.collidable_objects_layer.append(destroyable_wall)
+
             elif tile.type == "Finish":
                 finish = Finish(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(finish)
 
             elif tile.type == "InvincibilityCandy":
-                invincibilityCandy = InvincibilityCandy(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
-                _map.objects_layer.append(invincibilityCandy)
+                invincibility_candy = InvincibilityCandy(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
+                _map.objects_layer.append(invincibility_candy)
 
             elif tile.type == "Coin":
                 coin = Score(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
@@ -75,6 +88,7 @@ class Map:
             elif tile.type == "Heart":
                 heart = Heart(tile.image, 1.0, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(heart)
+
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
                     tile.x * TILE_SCALE, tile.y * TILE_SCALE,

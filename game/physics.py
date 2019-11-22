@@ -48,8 +48,8 @@ class PhysicsEngineSimple:
                 for item in hit_list:
                     self.player_sprite.left = max(item.right,
                                                   self.player_sprite.left)
-            else:
-                print("Error, collision while player wasn't moving.")
+            #else:
+                #print("Error, collision while player wasn't moving.")
 
         # --- Move in the y direction
         self.player_sprite.center_y += self.player_sprite.change_y
@@ -70,6 +70,6 @@ class PhysicsEngineSimple:
                 for item in hit_list:
                     self.player_sprite.bottom = max(item.top,
                                                     self.player_sprite.bottom)
-            else:
-                print("Error, collision while player wasn't moving.")
+            #else:
+                #print("Error, collision while player wasn't moving.")
         return results_hits

@@ -9,7 +9,7 @@ class Enemy(MapObject):
     def __init__(self, asset_path, scale, x, y, properties):
         super().__init__(asset_path, scale, x, y, properties)   
 
-    def update(self):
+    def update(self, delta_time):
         pass
 
     def on_hit(self):

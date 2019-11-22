@@ -17,6 +17,8 @@ class MyGame(arcade.Window):
         self.map = None
         self.player = None
         self.physics_engine = None
+        self.objects_physics_engine = None
+        self.gui = None
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
@@ -24,6 +26,7 @@ class MyGame(arcade.Window):
         self.player = Player("assets/sprites/enemies/bee.png", TILE_SCALE, 128, 128)
         self.map = Map.load("./maps/template.tmx")
         self.physics_engine = PhysicsEngineSimple(self.player, self.map.walls_layer)
+        self.objects_physics_engine = PhysicsEngineSimple(self.player, self.map.collidable_objects_layer)
         self.gui = MyGui()
 
     def on_draw(self):
@@ -44,20 +47,22 @@ class MyGame(arcade.Window):
 
         self.player.update()
         self.gui.update(delta_time)
-        self.map.update()
+        self.map.update(delta_time)
 
         # handle collision with walls
         hit_list = self.physics_engine.update()
         for hit in hit_list:
-            # collided with a wall
             pass
+
+        destroyable_hit_list = self.objects_physics_engine.update()
+        for hit in destroyable_hit_list:
+            hit.on_hit()
 
         enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
         if len(enemy_hit_list) > 0:
             self.player.on_hit()
-
-        for enemy in enemy_hit_list:
-            enemy.on_hit()
+            for enemy in enemy_hit_list:
+                enemy.on_hit()
 
         hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
         for hit in hit_list:

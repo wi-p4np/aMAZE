@@ -12,3 +12,5 @@ class MapObject(arcade.Sprite):
     def on_hit(self):
         self.remove_from_sprite_lists()
 
+    def update(self, delta_time):
+        pass
