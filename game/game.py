@@ -1,11 +1,11 @@
 import arcade
 
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
-from game.map.map import Map
-from game.player.player import Player
 from game.gui.gui import MyGui
+from game.managers.score_manager import ScoreManager
+from game.map.map import Map
 from game.physics import PhysicsEngineSimple
-from game.items.destroyable_wall import DestroyableWall
+from game.player.player import Player
 
 
 class MyGame(arcade.Window):
@@ -18,6 +18,7 @@ class MyGame(arcade.Window):
         self.player = None
         self.physics_engine = None
         self.objects_physics_engine = None
+        self.gui = None
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
@@ -41,32 +42,32 @@ class MyGame(arcade.Window):
         self.player.on_key_release(key)
 
     def update(self, delta_time):
+        if not ScoreManager.gameIsActive:
+            return
+
         self.player.update()
+        self.gui.update(delta_time)
         self.map.update(delta_time)
 
         # handle collision with walls
         hit_list = self.physics_engine.update()
         for hit in hit_list:
-            # collided with a wall
             pass
 
         destroyable_hit_list = self.objects_physics_engine.update()
         for hit in destroyable_hit_list:
-            print('moved x', self.player.center_x)
-            print(hit.health)
             hit.on_hit()
 
         enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
         if len(enemy_hit_list) > 0:
-            self.player.center_x = 128
-            self.player.center_y = 128
-
-        for enemy in enemy_hit_list:
-            enemy.on_hit()
+            self.player.on_hit()
+            for enemy in enemy_hit_list:
+                enemy.on_hit()
 
         hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
         for hit in hit_list:
             hit.on_hit()
+
 
 def main():
     window = MyGame()
