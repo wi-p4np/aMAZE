@@ -12,5 +12,8 @@ class Door(MapObject):
     def on_open(self):
        self.remove_from_sprite_lists()
 
+    def on_hit(self):
+    	pass
+
     def update(self, delta_time):
         pass
