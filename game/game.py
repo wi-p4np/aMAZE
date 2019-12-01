@@ -34,7 +34,7 @@ class MyGame(arcade.Window):
         self.map.draw()
         self.player.draw()
         self.gui.draw()
-
+        
     def on_key_press(self, key, modifiers):
         self.player.on_key_press(key)
 
@@ -42,11 +42,12 @@ class MyGame(arcade.Window):
         self.player.on_key_release(key)
 
     def update(self, delta_time):
+        self.gui.update(delta_time)
+        
         if not ScoreManager.gameIsActive:
             return
 
         self.player.update()
-        self.gui.update(delta_time)
         self.map.update(delta_time)
 
         # handle collision with walls
