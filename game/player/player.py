@@ -40,4 +40,5 @@ class Player(arcade.Sprite):
             ScoreManager.health -= 1;
 
     def update(self):
-        pass
+        ScoreManager.playerX = self.center_x
+        ScoreManager.playerY = self.center_y

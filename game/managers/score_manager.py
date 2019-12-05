@@ -8,3 +8,5 @@ class ScoreManager:
     invincibilityTimer = 0
     isInvincible = False
     health = MAX_HEALTH
+    playerX = None
+    playerY = None
