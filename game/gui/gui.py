@@ -22,8 +22,5 @@ class MyGui:
 
     def update(self, delta_time):
         self.invincibility_candy_bar.update(delta_time)
-        self.score_label.draw()
-
-    def update(self, delta_time):
         self.score_label.update()
         self.health_bar.update()
