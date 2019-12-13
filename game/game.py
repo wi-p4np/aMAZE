@@ -34,7 +34,13 @@ class MyGame(arcade.Window):
         self.map.draw()
         self.player.draw()
         self.gui.draw()
-        
+
+    def on_mouse_press(self, x, y, button, modifiers):
+        self.gui.on_mouse_press(x, y, button, modifiers)
+
+    def on_mouse_release(self, x, y, button, modifiers):
+        self.gui.on_mouse_release(x, y, button, modifiers)
+
     def on_key_press(self, key, modifiers):
         self.player.on_key_press(key)
 
