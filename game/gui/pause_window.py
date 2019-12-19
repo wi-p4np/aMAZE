@@ -14,11 +14,17 @@ class ShowPauseButton(arcade.gui.TextButton):
         if not self.dialoguebox.active:
             self.pressed = True
             self.dialoguebox.active = True
-            self.dialoguebox.set
+            self.active = False
+            #self.dialoguebox.set
 
     def on_release(self):
         if self.pressed:
             self.pressed = False
+
+    def draw(self):
+        if self.active:
+            super().draw()
+
 
 
 class CloseButton(arcade.gui.TextButton):
@@ -38,18 +44,18 @@ class CloseButton(arcade.gui.TextButton):
 
 class PauseWindow(arcade.gui.DialogueBox):
     def __init__(self):
-        super().__init__(WINDOW_WIDTH/1.5, WINDOW_HEIGHT/1.5,
+        super().__init__(555, 300,
             WINDOW_WIDTH, WINDOW_HEIGHT, (220, 228, 255), gui_theme)
 
         self.half_width = self.width/2
         self.half_height = self.height/2
 
         color = (220, 228, 255)
-        close_button = CloseButton(self, 70, 40,
+        close_button = CloseButton(self, 555, 300,
                                    theme=gui_theme)
         self.button_list.append(close_button)
         message = "GO TO MENU."
-        self.text_list.append(arcade.gui.Text(message, self.half_width, self.height-100, gui_theme.font_color))
+        self.text_list.append(arcade.gui.Text(message, 555, 400, gui_theme.font_color))
 
     def draw(self):
         super().on_draw()

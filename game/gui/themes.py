@@ -1,6 +1,6 @@
 import arcade
 
-gui_theme =  arcade.gui.Theme()
+gui_theme = arcade.gui.Theme()
 dialogue_box = "assets/sprites/UI/textures/crate0_diffuse.png"
 
 gui_theme.add_dialogue_box_texture(dialogue_box)
