@@ -16,6 +16,8 @@ class MyGame(arcade.Window):
 
         self.map = None
         self.player = None
+        self.animated_player = None
+        self.animated_player_list = None
         self.physics_engine = None
         self.objects_physics_engine = None
         self.gui = None
@@ -28,6 +30,10 @@ class MyGame(arcade.Window):
         self.physics_engine = PhysicsEngineSimple(self.player, self.map.walls_layer)
         self.objects_physics_engine = PhysicsEngineSimple(self.player, self.map.collidable_objects_layer)
         self.gui = MyGui()
+
+
+        #self.animated_player.animations
+
 
     def on_draw(self):
         arcade.start_render()
