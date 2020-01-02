@@ -8,3 +8,4 @@ class ScoreManager:
     invincibilityTimer = 0
     isInvincible = False
     health = MAX_HEALTH
+    pauseWindowIsActive = False

@@ -2,6 +2,7 @@ import arcade
 
 from game.gui.components.dialogue_box import DialogueBox
 from game.gui.themes import gui_theme
+from game.managers.score_manager import ScoreManager
 
 WINDOW_WIDTH = 300
 WINDOW_HEIGHT = 300
@@ -15,6 +16,7 @@ class ShowPauseButton(arcade.gui.TextButton):
     def on_press(self):
         if not self.dialoguebox.active:
             self.pressed = True
+            ScoreManager.pauseWindowIsActive = True
             self.dialoguebox.active = True
             self.active = False
             #self.dialoguebox.set
@@ -24,7 +26,7 @@ class ShowPauseButton(arcade.gui.TextButton):
             self.pressed = False
 
     def draw(self):
-        if self.active:
+        if not ScoreManager.pauseWindowIsActive:
             super().draw()
 
 
@@ -37,6 +39,7 @@ class CloseButton(arcade.gui.TextButton):
     def on_press(self):
         if self.dialoguebox.active:
             self.pressed = True
+            ScoreManager.pauseWindowIsActive = False
 
     def on_release(self):
         if self.pressed and self.dialoguebox.active:
@@ -63,4 +66,5 @@ class PauseWindow(DialogueBox):
         super().on_draw()
 
     def on_update(self, delta_time):
-        return
+        if ScoreManager.pauseWindowIsActive:
+            ScoreManager.gameIsActive = False
