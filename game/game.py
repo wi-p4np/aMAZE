@@ -16,6 +16,8 @@ class MyGame(arcade.Window):
 
         self.map = None
         self.player = None
+        self.animated_player = None
+        self.animated_player_list = None
         self.physics_engine = None
         self.objects_physics_engine = None
         self.gui = None
@@ -34,6 +36,10 @@ class MyGame(arcade.Window):
         self.following_enemy = FollowingEnemy("assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
         self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy, self.map.walls_layer)
         self.gui = MyGui()
+
+
+        #self.animated_player.animations
+
 
     def on_draw(self):
         arcade.start_render()
