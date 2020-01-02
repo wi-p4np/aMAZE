@@ -88,3 +88,5 @@ class Player(arcade.AnimatedTimeSprite):
 
     def update(self):
         self.update_animation()
+        ScoreManager.playerX = self.center_x
+        ScoreManager.playerY = self.center_y
