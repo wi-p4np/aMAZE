@@ -1,4 +1,6 @@
 import arcade
+
+from game.gui.components.dialogue_box import DialogueBox
 from game.gui.themes import gui_theme
 
 WINDOW_WIDTH = 300
@@ -42,10 +44,10 @@ class CloseButton(arcade.gui.TextButton):
             self.dialoguebox.active = False
 
 
-class PauseWindow(arcade.gui.DialogueBox):
+class PauseWindow(DialogueBox):
     def __init__(self):
         super().__init__(555, 300,
-            WINDOW_WIDTH, WINDOW_HEIGHT, (220, 228, 255), gui_theme)
+            WINDOW_WIDTH, WINDOW_HEIGHT, (220, 228, 255), gui_theme.dialogue_box_texture)
 
         self.half_width = self.width/2
         self.half_height = self.height/2
