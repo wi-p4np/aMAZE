@@ -48,6 +48,12 @@ class MyGame(arcade.Window):
         self.gui.draw()
         self.following_enemy.draw()
 
+    def on_mouse_press(self, x, y, button, modifiers):
+        self.gui.on_mouse_press(x, y, button, modifiers)
+
+    def on_mouse_release(self, x, y, button, modifiers):
+        self.gui.on_mouse_release(x, y, button, modifiers)
+
     def on_key_press(self, key, modifiers):
         self.player.on_key_press(key)
 
@@ -55,11 +61,12 @@ class MyGame(arcade.Window):
         self.player.on_key_release(key)
 
     def update(self, delta_time):
+        self.gui.update(delta_time)
+        
         if not ScoreManager.gameIsActive:
             return
 
         self.player.update()
-        self.gui.update(delta_time)
         self.map.update(delta_time)
         self.following_enemy.update(delta_time)
         self.following_enemy_physics_engine.update()
