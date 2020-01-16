@@ -30,7 +30,7 @@ class MyGui:
         self.invincibility_candy_bar.draw()
         self.pause_view.draw()
         self.score_label.draw()
-
+        
     def update(self, delta_time):
         self.invincibility_candy_bar.update(delta_time)
         self.pause_view.on_update(delta_time)

@@ -6,7 +6,7 @@ from game.managers.score_manager import ScoreManager
 from game.map.map import Map
 from game.physics import PhysicsEngineSimple
 from game.player.player import Player
-
+from game.enemies.enemies import FollowingEnemy
 
 class MyGame(arcade.Window):
 
@@ -16,24 +16,37 @@ class MyGame(arcade.Window):
 
         self.map = None
         self.player = None
+        self.animated_player = None
+        self.animated_player_list = None
         self.physics_engine = None
         self.objects_physics_engine = None
         self.gui = None
+        self.following_enemy = None
+        self.players_list = None
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
     def setup(self):
+        self.players_list = arcade.SpriteList()
         self.player = Player("assets/sprites/enemies/bee.png", TILE_SCALE, 128, 128)
+        self.players_list.append(self.player)
         self.map = Map.load("./maps/template.tmx")
         self.physics_engine = PhysicsEngineSimple(self.player, self.map.walls_layer)
         self.objects_physics_engine = PhysicsEngineSimple(self.player, self.map.collidable_objects_layer)
+        self.following_enemy = FollowingEnemy("assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
+        self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy, self.map.walls_layer)
         self.gui = MyGui()
+
+
+        #self.animated_player.animations
+
 
     def on_draw(self):
         arcade.start_render()
         self.map.draw()
         self.player.draw()
         self.gui.draw()
+        self.following_enemy.draw()
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.gui.on_mouse_press(x, y, button, modifiers)
@@ -55,6 +68,8 @@ class MyGame(arcade.Window):
 
         self.player.update()
         self.map.update(delta_time)
+        self.following_enemy.update(delta_time)
+        self.following_enemy_physics_engine.update()
 
         # handle collision with walls
         hit_list = self.physics_engine.update()
@@ -75,6 +90,11 @@ class MyGame(arcade.Window):
         for hit in hit_list:
             hit.on_hit()
 
+        players_list = arcade.check_for_collision_with_list(self.following_enemy, self.players_list)
+        if len(players_list) > 0:
+            for player in players_list:
+                player.on_hit()
+                    
 
 def main():
     window = MyGame()
