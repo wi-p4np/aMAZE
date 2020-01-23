@@ -18,10 +18,10 @@ class MyGame(arcade.Window):
         self.player = None
         self.animated_player = None
         self.animated_player_list = None
-        self.physics_engine = None
-        self.objects_physics_engine = None
+        self.player_physics_engine = None
         self.gui = None
         self.following_enemy = None
+        self.following_enemy_physics_engine = None
         self.players_list = None
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
@@ -31,15 +31,10 @@ class MyGame(arcade.Window):
         self.player = Player("assets/sprites/enemies/bee.png", TILE_SCALE, 128, 128)
         self.players_list.append(self.player)
         self.map = Map.load("./maps/template.tmx")
-        self.physics_engine = PhysicsEngineSimple(self.player, self.map.walls_layer)
-        self.objects_physics_engine = PhysicsEngineSimple(self.player, self.map.collidable_objects_layer)
+        self.player_physics_engine = PhysicsEngineSimple(self.player)
         self.following_enemy = FollowingEnemy("assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
-        self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy, self.map.walls_layer)
+        self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy)
         self.gui = MyGui()
-
-
-        #self.animated_player.animations
-
 
     def on_draw(self):
         arcade.start_render()
@@ -62,21 +57,20 @@ class MyGame(arcade.Window):
 
     def update(self, delta_time):
         self.gui.update(delta_time)
-        
+
         if not ScoreManager.gameIsActive:
             return
 
         self.player.update()
+        self.player_physics_engine.update()
         self.map.update(delta_time)
         self.following_enemy.update(delta_time)
         self.following_enemy_physics_engine.update()
 
         # handle collision with walls
-        hit_list = self.physics_engine.update()
-        for hit in hit_list:
-            pass
+        self.player_physics_engine.check(self.map.walls_layer)
 
-        destroyable_hit_list = self.objects_physics_engine.update()
+        destroyable_hit_list = self.player_physics_engine.check(self.map.collidable_objects_layer)
         for hit in destroyable_hit_list:
             hit.on_hit()
 
@@ -94,7 +88,9 @@ class MyGame(arcade.Window):
         if len(players_list) > 0:
             for player in players_list:
                 player.on_hit()
-                    
+
+        self.player_physics_engine.resolve()
+
 
 def main():
     window = MyGame()
