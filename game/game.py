@@ -7,6 +7,7 @@ from game.map.map import Map
 from game.physics import PhysicsEngineSimple
 from game.player.player import Player
 from game.enemies.enemies import FollowingEnemy
+from game.camera.camera import Camera
 
 class MyGame(arcade.Window):
 
@@ -23,6 +24,7 @@ class MyGame(arcade.Window):
         self.following_enemy = None
         self.following_enemy_physics_engine = None
         self.players_list = None
+        self.camera = None
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
@@ -35,6 +37,7 @@ class MyGame(arcade.Window):
         self.following_enemy = FollowingEnemy("assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
         self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy)
         self.gui = MyGui()
+        self.camera = Camera(self.player)
 
     def on_draw(self):
         arcade.start_render()
@@ -66,6 +69,7 @@ class MyGame(arcade.Window):
         self.map.update(delta_time)
         self.following_enemy.update(delta_time)
         self.following_enemy_physics_engine.update()
+        self.camera.update(delta_time)
 
         # handle collision with walls
         self.player_physics_engine.check(self.map.walls_layer)
