@@ -6,44 +6,44 @@ PLAYER_MOVEMENT_SPEED = 5
 
 
 class Player(arcade.AnimatedTimeSprite):
-    def __init__(self, asset_path, scale, x, y):
-        super().__init__(asset_path, scale)
+    def __init__(self, scale, x, y):
+        super().__init__("assets/sprites/other/player_05.png", scale)
 
         self.center_x = x
         self.center_y = y
 
         self.animations = {
             "right": [
-                arcade.load_texture("assets/sprites/other/player_17.png"),
-                arcade.load_texture("assets/sprites/other/player_18.png"),
-                arcade.load_texture("assets/sprites/other/player_19.png")
+                arcade.load_texture("assets/sprites/other/player_17.png", scale=scale),
+                arcade.load_texture("assets/sprites/other/player_18.png", scale=scale),
+                arcade.load_texture("assets/sprites/other/player_19.png", scale=scale)
             ],
             "left": [
-                arcade.load_texture("assets/sprites/other/player_20.png"),
-                arcade.load_texture("assets/sprites/other/player_21.png"),
-                arcade.load_texture("assets/sprites/other/player_22.png")
+                arcade.load_texture("assets/sprites/other/player_20.png", scale=scale),
+                arcade.load_texture("assets/sprites/other/player_21.png", scale=scale),
+                arcade.load_texture("assets/sprites/other/player_22.png", scale=scale)
             ],
             "up": [
-                arcade.load_texture("assets/sprites/other/player_08.png"),
-                arcade.load_texture("assets/sprites/other/player_09.png"),
-                arcade.load_texture("assets/sprites/other/player_10.png")
+                arcade.load_texture("assets/sprites/other/player_08.png", scale=scale),
+                arcade.load_texture("assets/sprites/other/player_09.png", scale=scale),
+                arcade.load_texture("assets/sprites/other/player_10.png", scale=scale)
             ],
             "down": [
-                arcade.load_texture("assets/sprites/other/player_05.png"),
-                arcade.load_texture("assets/sprites/other/player_06.png"),
-                arcade.load_texture("assets/sprites/other/player_07.png")
+                arcade.load_texture("assets/sprites/other/player_05.png", scale=scale),
+                arcade.load_texture("assets/sprites/other/player_06.png", scale=scale),
+                arcade.load_texture("assets/sprites/other/player_07.png", scale=scale)
             ],
             "idle_right": [
-                arcade.load_texture("assets/sprites/other/player_17.png"),
+                arcade.load_texture("assets/sprites/other/player_17.png", scale=scale),
             ],
             "idle_left": [
-                arcade.load_texture("assets/sprites/other/player_20.png"),
+                arcade.load_texture("assets/sprites/other/player_20.png", scale=scale),
             ],
             "idle_up": [
-                arcade.load_texture("assets/sprites/other/player_08.png"),
+                arcade.load_texture("assets/sprites/other/player_08.png", scale=scale),
             ],
             "idle_down": [
-                arcade.load_texture("assets/sprites/other/player_05.png"),
+                arcade.load_texture("assets/sprites/other/player_05.png", scale=scale),
             ]
         }
         self.play_animation("idle_down")

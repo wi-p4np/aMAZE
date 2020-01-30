@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="52">
- <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="39" columns="0">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="47">
+ <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="40" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter_rounded.png"/>
   </tile>
   <tile id="1">
-   <properties>
-    <property name="test" value="test"/>
-   </properties>
    <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter.png"/>
   </tile>
   <tile id="2">
@@ -122,183 +119,148 @@
   <tile id="42">
    <image width="128" height="128" source="../assets/sprites/other/lockRed.png"/>
   </tile>
+  <tile id="43">
+   <image width="128" height="128" source="../assets/sprites/blocks/sandCenter.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="44" source="../../training/game_2/myStuff.tsx"/>
- <layer id="1" name="Walls" width="10" height="10" offsetx="3.98963" offsety="7.10543e-15">
+ <layer id="1" name="Walls" width="10" height="10" offsetx="-0.01037" offsety="-4">
   <data>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
+   <tile gid="10"/>
+   <tile gid="8"/>
+   <tile gid="10"/>
+   <tile gid="10"/>
+   <tile gid="8"/>
+   <tile gid="9"/>
+   <tile gid="10"/>
+   <tile gid="10"/>
+   <tile gid="10"/>
+   <tile gid="10"/>
+   <tile gid="10"/>
    <tile/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile gid="2"/>
-   <tile gid="2"/>
+   <tile gid="10"/>
    <tile/>
    <tile/>
    <tile/>
-   <tile gid="2"/>
-   <tile gid="2"/>
+   <tile gid="10"/>
    <tile/>
    <tile/>
+   <tile gid="10"/>
+   <tile gid="10"/>
+   <tile/>
+   <tile gid="10"/>
+   <tile/>
+   <tile gid="10"/>
+   <tile gid="10"/>
+   <tile gid="10"/>
    <tile/>
    <tile/>
-   <tile gid="2"/>
+   <tile gid="10"/>
+   <tile gid="10"/>
    <tile/>
-   <tile/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="4"/>
-   <tile/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile gid="2"/>
-   <tile gid="4"/>
+   <tile gid="10"/>
    <tile/>
    <tile/>
    <tile/>
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile gid="2"/>
-   <tile gid="4"/>
-   <tile/>
+   <tile gid="10"/>
+   <tile gid="10"/>
    <tile/>
    <tile/>
    <tile/>
    <tile/>
+   <tile gid="44"/>
+   <tile gid="44"/>
    <tile/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
+   <tile/>
+   <tile gid="10"/>
    <tile gid="4"/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
    <tile gid="4"/>
    <tile/>
-   <tile gid="2"/>
+   <tile gid="44"/>
+   <tile gid="44"/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile gid="2"/>
+   <tile gid="10"/>
    <tile gid="4"/>
    <tile/>
-   <tile gid="2"/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile gid="2"/>
    <tile gid="4"/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile gid="10"/>
+   <tile gid="10"/>
    <tile gid="4"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
-   <tile gid="2"/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="4"/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile gid="8"/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile gid="10"/>
+   <tile gid="10"/>
+   <tile gid="10"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
   </data>
  </layer>
- <objectgroup id="3" name="Items" offsetx="4.51515" offsety="2.24242">
-  <object id="6" type="Gem" gid="13" x="512.286" y="382.074" width="128" height="128"/>
-  <object id="7" type="Gem" gid="14" x="386.978" y="1033.02" width="128" height="128"/>
-  <object id="35" type="DestroyableWall" gid="42" x="387.537" y="894.206" width="128" height="128"/>
-  <object id="2" type="Coin" gid="12" x="1020.02" y="1141.21" width="128" height="128">
+ <objectgroup id="3" name="Items">
+  <object id="6" type="Gem" gid="13" x="127.666" y="1145.97" width="128" height="128"/>
+  <object id="7" type="Gem" gid="14" x="1030.36" y="252.97" width="128" height="128"/>
+  <object id="35" type="DestroyableWall" gid="42" x="128.454" y="379.939" width="128" height="128"/>
+  <object id="2" type="Coin" gid="12" x="636.788" y="641.909" width="128" height="128">
    <properties>
     <property name="door" value="1"/>
     <property name="name" value=""/>
    </properties>
   </object>
-  <object id="7" type="Gem" gid="14" x="386.978" y="1156.7" width="128" height="128"/>
-  <object id="8" type="Gem" gid="14" x="768.989" y="383.312" width="128" height="128"/>
-  <object id="10" type="Star" gid="37" x="515.041" y="1025.04" width="128" height="128"/>
-  <object id="14" type="Coin" gid="12" x="1012.04" y="1027.5" width="128" height="128">
+  <object id="9" type="Star" gid="37" x="895.969" y="254.97" width="128" height="128"/>
+  <object id="14" type="Coin" gid="12" x="773.152" y="641.909" width="128" height="128">
    <properties>
     <property name="door" value="1"/>
     <property name="name" value=""/>
    </properties>
   </object>
-  <object id="16" type="InvincibilityCandy" gid="41" x="395.88" y="222.513" width="70" height="70"/>
-  <object id="10" type="Finish" gid="38" x="1022.39" y="512.912" width="128" height="128"/>
-  <object id="11" type="Heart" gid="39" x="528.783" y="1139.35" width="107" height="112"/>
-  <object id="12" type="Enemy" gid="40" x="763.176" y="253.684" width="128" height="128"/>
-  <object id="39" type="Door" gid="43" x="256.46" y="257.768" width="128" height="128">
+  <object id="16" type="InvincibilityCandy" gid="41" x="146.435" y="229.076" width="70" height="70"/>
+  <object id="10" type="Finish" gid="38" x="1143.15" y="1143.18" width="128" height="128"/>
+  <object id="11" type="Heart" gid="39" x="648.182" y="248.455" width="107" height="112"/>
+  <object id="12" type="Enemy" gid="40" x="760.757" y="1144.67" width="128" height="128"/>
+  <object id="39" type="Door" gid="43" x="889.061" y="1140.55" width="128" height="128">
    <properties>
     <property name="doorId" type="int" value="1"/>
    </properties>
   </object>
-  <object id="40" type="Key" gid="35" x="126.293" y="258.911" width="128" height="128">
+  <object id="40" type="Key" gid="35" x="895.121" y="1019.33" width="128" height="128">
    <properties>
     <property name="doorId" type="int" value="1"/>
    </properties>
   </object>
-  <object id="41" type="Enemy" gid="40" x="1028.49" y="640.677" width="128" height="128"/>
-  <object id="42" type="Enemy" gid="40" x="386.157" y="128.01" width="128" height="128"/>
-  <object id="43" type="DestroyableWall" gid="42" x="517.2" y="894.206" width="128" height="128"/>
-  <object id="44" type="DestroyableWall" gid="42" x="640.878" y="1021.87" width="128" height="128"/>
-  <object id="45" type="DestroyableWall" gid="42" x="640.878" y="1153.53" width="128" height="128"/>
-  <object id="46" type="Door" gid="43" x="262.445" y="381.447" width="128" height="128">
-   <properties>
-    <property name="doorId" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="47" type="Key" gid="35" x="132.277" y="384.584" width="128" height="128">
-   <properties>
-    <property name="doorId" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="48" type="Coin" gid="12" x="379.684" y="638.512" width="128" height="128">
-   <properties>
-    <property name="door" value="1"/>
-    <property name="name" value=""/>
-   </properties>
-  </object>
-  <object id="49" type="Coin" gid="12" x="132.327" y="772.165" width="128" height="128">
-   <properties>
-    <property name="door" value="1"/>
-    <property name="name" value=""/>
-   </properties>
-  </object>
-  <object id="50" type="Coin" gid="12" x="259.995" y="770.17" width="128" height="128">
-   <properties>
-    <property name="door" value="1"/>
-    <property name="name" value=""/>
-   </properties>
-  </object>
-  <object id="51" type="Coin" gid="12" x="1028" y="251.518" width="128" height="128">
-   <properties>
-    <property name="door" value="1"/>
-    <property name="name" value=""/>
-   </properties>
-  </object>
+  <object id="41" type="DestroyableWall" gid="42" x="1028.45" y="382.97" width="128" height="128"/>
+  <object id="42" type="DestroyableWall" gid="42" x="895.121" y="386" width="128" height="128"/>
+  <object id="43" type="DestroyableWall" gid="42" x="383" y="386" width="128" height="128"/>
+  <object id="44" type="Heart" gid="39" x="523.939" y="1142.39" width="107" height="112"/>
  </objectgroup>
 </map>

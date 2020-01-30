@@ -5,6 +5,8 @@ SCREEN_TITLE = "Platformer"
 
 TILE_SCALE = 0.5
 
+PLAYER_SCALE = 0.9
+
 # Movement speed of player, in pixels per frame
 PLAYER_MOVEMENT_SPEED = 5
 

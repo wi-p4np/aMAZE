@@ -1,6 +1,6 @@
 import arcade
 
-from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE
+from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE, PLAYER_SCALE
 from game.gui.gui import MyGui
 from game.managers.score_manager import ScoreManager
 from game.map.map import Map
@@ -30,9 +30,9 @@ class MyGame(arcade.Window):
 
     def setup(self):
         self.players_list = arcade.SpriteList()
-        self.player = Player("assets/sprites/enemies/bee.png", TILE_SCALE, 128, 128)
+        self.player = Player(PLAYER_SCALE, 98, 128)
         self.players_list.append(self.player)
-        self.map = Map.load("./maps/template.tmx")
+        self.map = Map.load("./maps/second_map.tmx")
         self.player_physics_engine = PhysicsEngineSimple(self.player)
         self.following_enemy = FollowingEnemy("assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
         self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy)
