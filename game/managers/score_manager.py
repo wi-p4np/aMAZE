@@ -4,6 +4,7 @@ MAX_HEALTH = 3
 
 class ScoreManager:
     score = 0
+    gem_score = 0
     gameIsActive = True
     invincibilityTimer = 0
     isInvincible = False

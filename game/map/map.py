@@ -2,10 +2,10 @@ import arcade
 
 from game.consts import TILE_SCALE
 from game.enemies.enemies import Enemy
-from game.gui.components.score import Score
 from game.items.destroyable_wall import DestroyableWall
 from game.items.finish import Finish
 from game.items.gem import Gem
+from game.items.score import Score
 from game.items.heart import Heart
 from game.items.invincibilityCandy import InvincibilityCandy
 from game.items.map_object import MapObject
