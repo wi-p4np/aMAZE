@@ -12,3 +12,8 @@ class GUIComponent:
     def update(self):
         pass
 
+    def on_mouse_press(self, x, y, button, modifiers):
+        pass
+
+    def on_mouse_release(self, x, y, button, modifiers):
+        pass

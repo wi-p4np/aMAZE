@@ -40,9 +40,8 @@ class HealthBar(GUIComponent):
     def draw(self):
         for x in range(MAX_HEALTH):
             heart = self.hearts_list.sprite_list[x]
-            print(self.center_x)
-            heart.center_x = self.center_x
-            heart.center_y = 0 #self.center_y
+            heart.center_x = x * 50 + self.center_x
+            heart.center_y = self.center_y
 
         self.hearts_list.draw()
 

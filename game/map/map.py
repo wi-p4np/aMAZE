@@ -9,6 +9,7 @@ from game.items.score import Score
 from game.items.heart import Heart
 from game.items.invincibilityCandy import InvincibilityCandy
 from game.items.map_object import MapObject
+from game.items.score import Score
 from game.items.star import Star
 from game.items.door import Door
 from game.items.door_key import DoorKey
