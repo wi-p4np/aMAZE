@@ -14,6 +14,14 @@ class GUIPanel:
         for component in self.components:
             component.update()
 
+    def on_mouse_press(self, x, y, button, modifiers):
+        for component in self.components:
+            component.on_mouse_press(x, y, button, modifiers)
+
+    def on_mouse_release(self, x, y, button, modifiers):
+        for component in self.components:
+            component.on_mouse_release(x, y, button, modifiers)
+
     def draw(self):
         viewport_left, viewport_right, viewport_bottom, viewport_top = arcade.get_viewport()
         for component in self.components:

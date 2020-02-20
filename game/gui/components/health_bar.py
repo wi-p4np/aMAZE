@@ -19,7 +19,8 @@ TEXTURE_EMPTY = 2
 
 
 class HealthBar(GUIComponent):
-    def __init__(self):
+    def __init__(self, center_x, center_y):
+        super().__init__(center_x, center_y)
 
         textures = [
             arcade.load_texture(SPRITES['half'], scale=HEARTS_SCALING),
@@ -38,8 +39,8 @@ class HealthBar(GUIComponent):
     def draw(self):
         for x in range(MAX_HEALTH):
             heart = self.hearts_list.sprite_list[x]
-            heart.center_x = x * 50 + 850  # self.center_x
-            heart.center_y = 600
+            heart.center_x = x * 50 + self.center_x
+            heart.center_y = self.center_y
 
         self.hearts_list.draw()
 
