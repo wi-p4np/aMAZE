@@ -33,14 +33,14 @@ def _read_layers(xml, tileset):
         data = _layer.find('data')
         for index, _tile in enumerate(data.getchildren()):
             tile = None
-            x, y = index % layer.width, int(index / layer.width)
+            x, y = index % layer.width, -(int(index / layer.width) + 1)
 
             if 'gid' in _tile.attrib:
 
                 tile = Tile(
                     x * tileset.tilewidth, y * tileset.tileheight,
                     tileset.tilewidth, tileset.tileheight,
-                    tileset.tiles[int(_tile.attrib['gid'])])
+                    tileset.tiles[int(_tile.attrib['gid'])-1])
 
             row.append(tile)
 
@@ -65,7 +65,7 @@ def _read_object_layers(xml, tileset):
                 _object.attrib.get('type'),
                 tileset.tiles[int(_object.attrib['gid'])-1],
                 float(_object.attrib['x']) + layer.offset_x,
-                float(_object.attrib['y']) + layer.offset_y,
+                -(float(_object.attrib['y']) + layer.offset_y),
                 _object.attrib['width'],
                 _object.attrib['height'],
                 _object.attrib.get('visible'))

@@ -14,6 +14,7 @@ class Camera():
         target_bottom = self.player.center_y - SCREEN_HEIGHT / 2
 
         self.left = arcade.lerp(self.left, target_left, delta_time*2)
+
         self.bottom = arcade.lerp(self.bottom, target_bottom, delta_time*2)
 
         arcade.set_viewport(self.left,
