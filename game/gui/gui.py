@@ -9,7 +9,6 @@ from game.gui.pause_window import ShowPauseButton
 from game.gui.themes import gui_theme
 
 
-
 class MyGui:
     def __init__(self):
         self.health_bar = HealthBar()

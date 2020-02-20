@@ -9,91 +9,51 @@ from game.player.player import Player
 from game.enemies.enemies import FollowingEnemy
 from game.camera.camera import Camera
 
+from game.scene.game_scene import GameScene
+from game.scene.menu_scene import GameMenu
+
+
 class MyGame(arcade.Window):
 
     def __init__(self):
+        super().__init__()
+        self.current = None
+        self.scenes = {
+            "game": GameScene(self),
+            "menu": GameMenu(self)
 
-        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+        }
 
-        self.map = None
-        self.player = None
-        self.animated_player = None
-        self.animated_player_list = None
-        self.player_physics_engine = None
-        self.gui = None
-        self.following_enemy = None
-        self.following_enemy_physics_engine = None
-        self.players_list = None
-        self.camera = None
-
-        arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
+        self.current = self.scenes['menu']
 
     def setup(self):
-        self.players_list = arcade.SpriteList()
-        self.player = Player(PLAYER_SCALE, 98, 128)
-        self.players_list.append(self.player)
-        self.map = Map.load("./maps/second_map.tmx")
-        self.player_physics_engine = PhysicsEngineSimple(self.player)
-        self.following_enemy = FollowingEnemy("assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
-        self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy)
-        self.gui = MyGui()
-        self.camera = Camera(self.player)
+        self.current.setup()
 
     def on_draw(self):
         arcade.start_render()
-        self.map.draw()
-        self.player.draw()
-        self.gui.draw()
-        self.following_enemy.draw()
-
-    def on_mouse_press(self, x, y, button, modifiers):
-        self.gui.on_mouse_press(x, y, button, modifiers)
-
-    def on_mouse_release(self, x, y, button, modifiers):
-        self.gui.on_mouse_release(x, y, button, modifiers)
-
-    def on_key_press(self, key, modifiers):
-        self.player.on_key_press(key)
-
-    def on_key_release(self, key, modifiers):
-        self.player.on_key_release(key)
+        self.current.draw()
+        pass
 
     def update(self, delta_time):
-        self.gui.update(delta_time)
+        self.current.update(delta_time)
+        pass
 
-        if not ScoreManager.gameIsActive:
-            return
+    def on_mouse_press(self, x, y, button, modifiers):
+        self.current.on_mouse_press(x, y, button, modifiers)
 
-        self.player.update()
-        self.player_physics_engine.update()
-        self.map.update(delta_time)
-        self.following_enemy.update(delta_time)
-        self.following_enemy_physics_engine.update()
-        self.camera.update(delta_time)
+    def on_mouse_release(self, x, y, button, modifiers):
+        self.current.on_mouse_release(x, y, button, modifiers)
 
-        # handle collision with walls
-        self.player_physics_engine.check(self.map.walls_layer)
+    def on_key_press(self, key, modifiers):
+        self.current.on_key_press(key, modifiers)
 
-        destroyable_hit_list = self.player_physics_engine.check(self.map.collidable_objects_layer)
-        for hit in destroyable_hit_list:
-            hit.on_hit()
+    def on_key_release(self, key, modifiers):
+        self.current.on_key_release(key, modifiers)
 
-        enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
-        if len(enemy_hit_list) > 0:
-            self.player.on_hit()
-            for enemy in enemy_hit_list:
-                enemy.on_hit()
+    def change_scene(self, scene_name):
+        self.current = self.scenes[scene_name]
+        self.current.setup()
 
-        hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
-        for hit in hit_list:
-            hit.on_hit()
-
-        players_list = arcade.check_for_collision_with_list(self.following_enemy, self.players_list)
-        if len(players_list) > 0:
-            for player in players_list:
-                player.on_hit()
-
-        self.player_physics_engine.resolve()
 
 
 def main():
