@@ -1,7 +1,7 @@
 import arcade
 from game.gui.components.component import GUIComponent
 
-BUTTON_SPRITE = '/home/elena/aMAZE/assets/sprites/UI/grey_button01.png'
+BUTTON_SPRITE = 'assets/sprites/UI/grey_button01.png'
 SCALING = 0.80
 
 
