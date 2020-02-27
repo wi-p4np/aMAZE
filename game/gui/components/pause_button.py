@@ -2,7 +2,7 @@ import arcade
 from game.gui.components.button import Button
 from game.managers.score_manager import ScoreManager
 
-BUTTON_SPRITE = '/home/elena/aMAZE/assets/sprites/UI/grey_button01.png'
+BUTTON_SPRITE = '/assets/sprites/UI/grey_button01.png'
 SCALING = 0.80
 
 class PauseButton(Button):
