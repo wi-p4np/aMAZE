@@ -6,54 +6,110 @@ from game.managers.score_manager import ScoreManager
 from game.map.map import Map
 from game.physics import PhysicsEngineSimple
 from game.player.player import Player
-from game.enemies.enemies import FollowingEnemy
 from game.camera.camera import Camera
-
-from game.scene.game_scene import GameScene
-from game.scene.menu_scene import GameMenu
+from game.enemies.following_enemy import FollowingEnemy
+from game.enemies.bullet_controller import BulletController
+from game.enemies.shooting_enemy import ShootingEnemy
 
 
 class MyGame(arcade.Window):
 
     def __init__(self):
-        super().__init__()
-        self.current = None
-        self.scenes = {
-            "game": GameScene(self),
-            "menu": GameMenu(self)
 
-        }
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
-        self.current = self.scenes['menu']
+        self.map = None
+        self.player = None
+        self.animated_player = None
+        self.animated_player_list = None
+        self.player_physics_engine = None
+        self.gui = None
+        self.following_enemy = None
+        self.following_enemy_physics_engine = None
+        self.players_list = None
+        self.camera = None
+        self.shooting_enemy = None
+        self.players_list = None
+        self.bullet_controller = None
+        self.following_enemy_physics_engine = None
+        self.shooting_enemy_physics_engine = None
+        arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
     def setup(self):
-        self.current.setup()
+        self.bullet_controller = BulletController(self)
+        self.players_list = arcade.SpriteList()
+        self.player = Player(PLAYER_SCALE, 128, 128)
+        self.players_list.append(self.player)
+        self.map = Map.load("./maps/template.tmx")
+        self.player_physics_engine = PhysicsEngineSimple(self.player)
+        self.following_enemy = FollowingEnemy(self, "assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
+        self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy)
+        self.shooting_enemy = ShootingEnemy(self, "assets/sprites/enemies/frog_move.png",
+                                            TILE_SCALE, -100, 00, None, self.bullet_controller)
+        self.shooting_enemy_physics_engine = PhysicsEngineSimple(self.shooting_enemy)
+
+        self.gui = MyGui()
+        self.camera = Camera(self.player)
 
     def on_draw(self):
         arcade.start_render()
-        self.current.draw()
-        pass
-
-    def update(self, delta_time):
-        self.current.update(delta_time)
-        pass
+        self.map.draw()
+        self.player.draw()
+        self.gui.draw()
+        self.following_enemy.draw()
+        self.bullet_controller.draw()
+        self.shooting_enemy.draw()
 
     def on_mouse_press(self, x, y, button, modifiers):
-        self.current.on_mouse_press(x, y, button, modifiers)
+        self.gui.on_mouse_press(x, y, button, modifiers)
 
     def on_mouse_release(self, x, y, button, modifiers):
-        self.current.on_mouse_release(x, y, button, modifiers)
+        self.gui.on_mouse_release(x, y, button, modifiers)
 
     def on_key_press(self, key, modifiers):
-        self.current.on_key_press(key, modifiers)
+        self.player.on_key_press(key)
 
     def on_key_release(self, key, modifiers):
-        self.current.on_key_release(key, modifiers)
+        self.player.on_key_release(key)
 
-    def change_scene(self, scene_name):
-        self.current = self.scenes[scene_name]
-        self.current.setup()
+    def update(self, delta_time):
+        self.gui.update(delta_time)
 
+        if not ScoreManager.gameIsActive:
+            return
+
+        self.player.update()
+        self.player_physics_engine.update()
+        self.map.update(delta_time)
+        self.following_enemy.update(delta_time)
+        self.following_enemy_physics_engine.update()
+        self.camera.update(delta_time)
+        self.bullet_controller.update(delta_time)
+        self.shooting_enemy.update(delta_time)
+        self.shooting_enemy_physics_engine.update()
+
+        self.player_physics_engine.check(self.map.walls_layer)
+
+        destroyable_hit_list = self.player_physics_engine.check(self.map.collidable_objects_layer)
+        for hit in destroyable_hit_list:
+            hit.on_hit()
+
+        enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
+        if len(enemy_hit_list) > 0:
+            self.player.on_hit()
+            for enemy in enemy_hit_list:
+                enemy.on_hit()
+
+        hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
+        for hit in hit_list:
+            hit.on_hit()
+
+        players_list = arcade.check_for_collision_with_list(self.following_enemy, self.players_list)
+        if len(players_list) > 0:
+            for player in players_list:
+                player.on_hit()
+
+        self.player_physics_engine.resolve()
 
 
 def main():
