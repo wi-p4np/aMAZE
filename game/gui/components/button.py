@@ -10,7 +10,7 @@ class Button(GUIComponent):
         super().__init__(center_x, center_y)
 
         self.icon = arcade.Sprite(BUTTON_SPRITE, SCALING)
-        self.text = 'SHOW'
+        self.text = ''
         self.center_x = center_x
         self.center_y = center_y
 
@@ -27,8 +27,8 @@ class Button(GUIComponent):
 
     def check_mouse_press(self, x, y):
 
-        print("lol checking")
-        print(self.center_x, self.center_y, self.icon.width, self.icon.height, x, y)
+        #print("lol checking")
+        #print(self.center_x, self.center_y, self.icon.width, self.icon.height, x, y)
 
         if x > self.center_x + self.icon.width / 2:
             return False
@@ -44,9 +44,3 @@ class Button(GUIComponent):
 
     def draw(self):
         pass
-        #self.icon.center_x = self.center_x
-        #self.icon.center_y = self.center_y
-        #self.icon.draw()
-
-        #arcade.draw_text(self.text,
-                         #self.icon.center_x - 30, self.icon.center_y - 4, arcade.csscolor.BLACK, 20)

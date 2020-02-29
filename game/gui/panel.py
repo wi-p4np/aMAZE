@@ -15,6 +15,9 @@ class GUIPanel:
             component.update()
 
     def on_mouse_press(self, x, y, button, modifiers):
+        viewport_left, viewport_right, viewport_bottom, viewport_top = arcade.get_viewport()
+        x = viewport_left + self.x + x
+        y = viewport_bottom + self.y + y
         for component in self.components:
             component.on_mouse_press(x, y, button, modifiers)
 
