@@ -1,12 +1,19 @@
 import arcade
 
-from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE, PLAYER_SCALE
+from game.consts import TILE_SCALE, PLAYER_SCALE
+from game.enemies.bullet_controller import BulletController
+from game.enemies.shooting_enemy import ShootingEnemy
 from game.gui.gui import MyGui
 from game.managers.score_manager import ScoreManager
 from game.map.map import Map
 from game.physics import PhysicsEngineSimple
 from game.player.player import Player
-from game.enemies.enemies import FollowingEnemy
+from game.map.map import Map
+from game.physics import PhysicsEngineSimple
+from game.player.player import Player
+from game.enemies.following_enemy import FollowingEnemy
+from game.enemies.bullet_controller import BulletController
+from game.enemies.shooting_enemy import ShootingEnemy
 from game.camera.camera import Camera
 from game.scene.scene import Scene
 
@@ -25,17 +32,26 @@ class GameScene(Scene):
         self.following_enemy_physics_engine = None
         self.players_list = None
         self.camera = None
-
+        self.shooting_enemy = None
+        self.players_list = None
+        self.bullet_controller = None
+        self.following_enemy_physics_engine = None
+        self.shooting_enemy_physics_engine = None
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
     def setup(self):
+        self.bullet_controller = BulletController(self)
         self.players_list = arcade.SpriteList()
-        self.player = Player(PLAYER_SCALE, 98, 128)
+        self.player = Player(PLAYER_SCALE, 128, 128)
         self.players_list.append(self.player)
-        self.map = Map.load("./maps/second_map.tmx")
+        self.map = Map.load("./maps/template.tmx")
         self.player_physics_engine = PhysicsEngineSimple(self.player)
-        self.following_enemy = FollowingEnemy("assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
+        self.following_enemy = FollowingEnemy(self, "assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
         self.following_enemy_physics_engine = PhysicsEngineSimple(self.following_enemy)
+        self.shooting_enemy = ShootingEnemy(self, "assets/sprites/enemies/frog_move.png",
+                                            TILE_SCALE, -100, 00, None, self.bullet_controller)
+        self.shooting_enemy_physics_engine = PhysicsEngineSimple(self.shooting_enemy)
+
         self.gui = MyGui()
         self.camera = Camera(self.player)
 
@@ -44,6 +60,8 @@ class GameScene(Scene):
         self.player.draw()
         self.gui.draw()
         self.following_enemy.draw()
+        self.bullet_controller.draw()
+        self.shooting_enemy.draw()
 
     def update(self, delta_time):
         self.gui.update(delta_time)
@@ -57,8 +75,10 @@ class GameScene(Scene):
         self.following_enemy.update(delta_time)
         self.following_enemy_physics_engine.update()
         self.camera.update(delta_time)
+        self.bullet_controller.update(delta_time)
+        self.shooting_enemy.update(delta_time)
+        self.shooting_enemy_physics_engine.update()
 
-        # handle collision with walls
         self.player_physics_engine.check(self.map.walls_layer)
 
         destroyable_hit_list = self.player_physics_engine.check(self.map.collidable_objects_layer)
