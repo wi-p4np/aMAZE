@@ -25,10 +25,10 @@ class PhysicsEngineSimple:
         self._prev_y = player_sprite.center_y
         self._hits_list = []
 
-    def check(self, walls: SpriteList):
+    def check(self, others: SpriteList):
         hit_list = \
             check_for_collision_with_list(self.player_sprite,
-                                          walls)
+                                          others)
         self._hits_list.extend(hit_list)
         return hit_list
 
