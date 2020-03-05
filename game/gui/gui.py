@@ -33,7 +33,6 @@ class MyGui:
     def update(self, delta_time):
         self.invincibility_candy_bar.update(delta_time)
         self.pause_view.on_update(delta_time)
-        self.score_label.update()
         self.health_bar.update()
 
     def on_mouse_press(self, x, y, button, modifiers):
