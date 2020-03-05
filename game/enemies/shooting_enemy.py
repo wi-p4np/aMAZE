@@ -20,6 +20,9 @@ class ShootingEnemy(FollowingEnemy):
         d = math.sqrt(_x ** 2 + _y ** 2)
 
         self.shooting_timer -= delta_time
+        self.change_x = 0
+        self.change_y = 0
+
         if d <= SHORT_DISTANCE_MIN:
             if d <= SHOOTING_DISTANCE_MAX:
                 if self.shooting_timer <= 0:
@@ -29,9 +32,6 @@ class ShootingEnemy(FollowingEnemy):
             if d <= SHOOTING_DISTANCE_MIN:
                 self.change_x = _x * self.speed / d
                 self.change_y = _y * self.speed / d
-            else:
-                self.change_x = 0
-                self.change_y = 0
 
         self.physics_engine.check(self.parent.map.walls_layer)
 
