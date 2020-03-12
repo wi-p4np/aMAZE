@@ -10,8 +10,12 @@ class Gem(MapObject):
 
     def on_hit(self):
         ScoreManager.gem_score += 1
+<<<<<<< HEAD
         super().on_hit()
 
     def update(self, delta_time):
         self.timer += delta_time
         self.center_y = self.center_y + sin(self.timer * 5) * 0.150
+=======
+        super().on_hit()
+>>>>>>> 3659949211fb043e4e9123825ce8405dcfcc4a51

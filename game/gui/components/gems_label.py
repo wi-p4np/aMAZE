@@ -8,4 +8,3 @@ class GemsLabel(ScoreLabel):
 
 	def update(self):
 		self.set_text(ScoreManager.gem_score)
-

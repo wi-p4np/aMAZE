@@ -34,7 +34,6 @@ class HealthBar(GUIComponent):
             for texture in textures:
                 heart.append_texture(texture)
             self.hearts_list.append(heart)
-
         self.update()
 
     def draw(self):
