@@ -1,6 +1,5 @@
-from game.gui.components.score import ScoreLabel
+from game.gui.components.score_label import ScoreLabel
 from game.managers.score_manager import ScoreManager
-
 
 
 class CoinsLabel(ScoreLabel):
@@ -10,7 +9,3 @@ class CoinsLabel(ScoreLabel):
 
 	def update(self):
 		self.set_text(ScoreManager.score)
-
-
-
-

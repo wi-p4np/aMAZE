@@ -1,4 +1,6 @@
 import arcade
+
+from game.gui.components.component import GUIComponent
 from game.managers.score_manager import ScoreManager
 from game.managers.score_manager import MAX_HEALTH
 
@@ -16,8 +18,9 @@ TEXTURE_HALF = 1
 TEXTURE_EMPTY = 2
 
 
-class HealthBar():
-    def __init__(self):
+class HealthBar(GUIComponent):
+    def __init__(self, center_x, center_y):
+        super().__init__(center_x, center_y)
 
         textures = [
             arcade.load_texture(SPRITES['half'], scale=HEARTS_SCALING),
@@ -30,13 +33,15 @@ class HealthBar():
             heart = arcade.Sprite(SPRITES['full'], HEARTS_SCALING)
             for texture in textures:
                 heart.append_texture(texture)
-            heart.center_x = x * 50 + 850
-            heart.center_y = 600
             self.hearts_list.append(heart)
-
         self.update()
 
     def draw(self):
+        for x in range(MAX_HEALTH):
+            heart = self.hearts_list.sprite_list[x]
+            heart.center_x = x * 50 + self.center_x
+            heart.center_y = self.center_y
+
         self.hearts_list.draw()
 
     def update(self):

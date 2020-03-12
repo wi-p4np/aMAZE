@@ -8,6 +8,7 @@ PLAYER_MOVEMENT_SPEED = 5
 class Player(arcade.AnimatedTimeSprite):
     def __init__(self, scale, x, y):
         super().__init__("assets/sprites/other/player_05.png", scale)
+        self.collision_radius = 0
 
         self.center_x = x
         self.center_y = y
