@@ -18,7 +18,6 @@ class GameScene(Scene):
     def __init__(self, game):
         super().__init__(game)
         self.map = None
-        self.player = None
         self.animated_player = None
         self.animated_player_list = None
         self.player_physics_engine = None
@@ -34,7 +33,6 @@ class GameScene(Scene):
     def setup(self):
         self.bullet_controller = BulletController(self)
         self.players_list = arcade.SpriteList()
-        self.player = Player(PLAYER_SCALE, 128, 128)
         self.players_list.append(self.player)
         self.map = Map.load("./maps/template.tmx")
         self.player_physics_engine = PhysicsEngineSimple(self.player)

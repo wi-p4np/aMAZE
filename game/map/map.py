@@ -14,14 +14,17 @@ from game.items.star import Star
 from game.items.door import Door
 from game.items.door_key import DoorKey
 from game.map.parser.parser import MapParser
+from game.player.player import Player
+from game import game
 
 
 class Map:
-    def __init__(self):
+    def __init__(self, game):
         self.walls_layer = arcade.SpriteList()
         self.objects_layer = arcade.SpriteList()
         self.enemies_layer = arcade.SpriteList()
         self.collidable_objects_layer = arcade.SpriteList()
+        self.game = game
 
     def draw(self):
         self.walls_layer.draw()
@@ -43,7 +46,7 @@ class Map:
     def load(file_path):
         config = MapParser.read(file_path)
 
-        _map = Map()
+        _map = Map(game)
         for row in config.layers['Walls'].tiles:
             for tile in row:
                 if not tile:
@@ -99,6 +102,10 @@ class Map:
             elif tile.type == "Heart":
                 heart = Heart(tile.image, 1.0, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(heart)
+
+            elif tile.type == "Player":
+                player = Player(TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE)
+                self.game.player = player
 
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
