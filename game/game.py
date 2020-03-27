@@ -21,7 +21,6 @@ class MyGame(arcade.Window):
 
         self.current = self.scenes['menu']
         self.player = None
-        self.map = Map(self)
 
     def setup(self):
         self.current.setup()

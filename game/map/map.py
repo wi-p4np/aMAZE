@@ -15,16 +15,15 @@ from game.items.door import Door
 from game.items.door_key import DoorKey
 from game.map.parser.parser import MapParser
 from game.player.player import Player
-from game import game
 
 
 class Map:
-    def __init__(self, game):
+    def __init__(self):
         self.walls_layer = arcade.SpriteList()
         self.objects_layer = arcade.SpriteList()
         self.enemies_layer = arcade.SpriteList()
         self.collidable_objects_layer = arcade.SpriteList()
-        self.game = game
+        #self.game = game
 
     def draw(self):
         self.walls_layer.draw()
@@ -43,10 +42,10 @@ class Map:
             _object.update(delta_time)
 
     @staticmethod
-    def load(file_path):
+    def load(game, file_path):
         config = MapParser.read(file_path)
 
-        _map = Map(game)
+        _map = Map()
         for row in config.layers['Walls'].tiles:
             for tile in row:
                 if not tile:
@@ -105,7 +104,7 @@ class Map:
 
             elif tile.type == "Player":
                 player = Player(TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE)
-                self.game.player = player
+                game.player = player
 
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
