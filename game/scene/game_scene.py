@@ -21,6 +21,7 @@ class GameScene(Scene):
         self.animated_player = None
         self.animated_player_list = None
         self.player_physics_engine = None
+        self.player = None
         self.gui = None
         self.following_enemy = None
         self.players_list = None
@@ -41,7 +42,7 @@ class GameScene(Scene):
         print("player", self.player)
         print("players_list", self.players_list)
         self.players_list.append(self.player)
-
+        print(5)
         self.player_physics_engine = PhysicsEngineSimple(self.player)
         print(6)
         self.following_enemy = FollowingEnemy(self, "assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)

@@ -112,4 +112,5 @@ class Map:
                     tile.properties)
 
                 _map.objects_layer.append(sprite)
+        assert game.player is not None
         return _map
