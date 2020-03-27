@@ -45,4 +45,4 @@ class ResumeButton(Button):
         self.icon.draw()
 
         arcade.draw_text(self.text,
-                         self.icon.center_x - 40, self.icon.center_y - 6, arcade.csscolor.BLACK, 20)
+                         self.icon.center_x - 50, self.icon.center_y - 6, arcade.csscolor.BLACK, 20)

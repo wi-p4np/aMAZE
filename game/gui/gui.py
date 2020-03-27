@@ -8,7 +8,8 @@ from game.gui.components.pause_button import PausePanel
 from game.gui.components.resume_button import ResumeButton
 from game.gui.components.quit_button import QuitButton
 from game.managers.score_manager import ScoreManager
-
+from game.gui.components.pause_background import PauseBackground
+from game.consts import SCREEN_WIDTH
 
 class MyGui:
     def __init__(self):
@@ -19,9 +20,10 @@ class MyGui:
         self.top_panel.add_component(GemsLabel('gem', 50, 50))
         self.top_panel.add_component(CoinsLabel('coin', 150, 50))
         self.top_panel.add_component(HealthBar(850, 50))
+        self.pause_view.add_component(PauseBackground())
         self.top_panel.add_component(PauseButton(self.pause_view, 910, 600))
-        self.pause_view.add_component(ResumeButton(self.pause_view, 350, 200))
-        self.pause_view.add_component(QuitButton(self.pause_view, 700, 200))
+        self.pause_view.add_component(ResumeButton(self.pause_view, SCREEN_WIDTH/2, 250))
+        self.pause_view.add_component(QuitButton(self.pause_view, SCREEN_WIDTH/2, 320))
 
     def draw(self):
         self.top_panel.draw()
