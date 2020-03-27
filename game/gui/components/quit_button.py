@@ -1,18 +1,16 @@
 import arcade
 from game.gui.components.button import Button
-from game.managers.score_manager import ScoreManager
 
 BUTTON_SPRITE = 'assets/sprites/UI/grey_button01.png'
 SCALING = 1
 
 
 class QuitButton(Button):
-    def __init__(self, pause_window, center_x, center_y,):
+    def __init__(self, center_x, center_y,):
         super().__init__(center_x, center_y)
 
-        self.pause_window = pause_window
         self.icon = arcade.Sprite(BUTTON_SPRITE, SCALING)
-        self.text = 'QUIT'
+        self.text = 'MENU'
         self.center_x = center_x
         self.center_y = center_y
         self.pressed = False
@@ -26,17 +24,16 @@ class QuitButton(Button):
             self.on_release()
 
     def on_press(self):
-        if self.pause_window.visible:
-            self.pressed = True
+        self.pressed = True
+        print('running')
 
     def on_release(self):
         if self.pressed:
             self.pressed = False
 
     def update(self):
-        if self.pause_window.visible:
-            if self.pressed:
-                print('I quit')
+        if self.pressed:
+            print('I quit')
 
 
     def draw(self):

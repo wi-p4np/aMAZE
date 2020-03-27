@@ -86,6 +86,8 @@ class Player(arcade.AnimatedTimeSprite):
             self.center_x = 128
             self.center_y = 128
             ScoreManager.health -= 1
+        if ScoreManager.health <= 0:
+            ScoreManager.deathWindowIsActive = True
 
     def update(self):
         self.update_animation()

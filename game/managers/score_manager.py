@@ -10,5 +10,6 @@ class ScoreManager:
     isInvincible = False
     health = MAX_HEALTH
     pauseWindowIsActive = False
+    deathWindowIsActive = False
     playerX = None
     playerY = None

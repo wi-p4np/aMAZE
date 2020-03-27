@@ -13,7 +13,7 @@ class PauseButton(Button):
 
         self.pause_window = pause_window
         self.icon = arcade.Sprite(BUTTON_SPRITE, SCALING)
-        self.text = 'MENU'
+        self.text = 'PAUSE'
         self.center_x = center_x
         self.center_y = center_y
         self.pressed = False
@@ -43,4 +43,4 @@ class PauseButton(Button):
             self.icon.draw()
 
             arcade.draw_text(self.text,
-                             self.icon.center_x - 30, self.icon.center_y - 6, arcade.csscolor.BLACK, 20)
+                             self.icon.center_x - 40, self.icon.center_y - 6, arcade.csscolor.BLACK, 20)
