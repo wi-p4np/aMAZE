@@ -23,7 +23,6 @@ class Map:
         self.objects_layer = arcade.SpriteList()
         self.enemies_layer = arcade.SpriteList()
         self.collidable_objects_layer = arcade.SpriteList()
-        #self.game = game
 
     def draw(self):
         self.walls_layer.draw()
@@ -112,5 +111,4 @@ class Map:
                     tile.properties)
 
                 _map.objects_layer.append(sprite)
-        assert game.player is not None
         return _map

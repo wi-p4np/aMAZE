@@ -122,131 +122,7 @@
   <tile id="42">
    <image width="128" height="128" source="../assets/sprites/other/lockRed.png"/>
   </tile>
- </tileset>
- <tileset firstgid="44" source="../../training/game_2/myStuff.tsx"/>
- <tileset firstgid="200" name="Tileset" tilewidth="128" tileheight="128" tilecount="41" columns="0">
-  <grid orientation="orthogonal" width="1" height="1"/>
-  <tile id="0">
-   <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter_rounded.png"/>
-  </tile>
-  <tile id="1">
-   <image width="128" height="128" source="../assets/sprites/blocks/dirtCenter.png"/>
-  </tile>
-  <tile id="2">
-   <image width="128" height="128" source="../assets/sprites/blocks/grassCenter.png"/>
-  </tile>
-  <tile id="3">
-   <image width="128" height="128" source="../assets/sprites/blocks/planetCenter_rounded.png"/>
-  </tile>
-  <tile id="4">
-   <image width="128" height="128" source="../assets/sprites/blocks/planetCenter.png"/>
-  </tile>
-  <tile id="5">
-   <image width="128" height="128" source="../assets/sprites/blocks/sandCenter_rounded.png"/>
-  </tile>
-  <tile id="6">
-   <image width="128" height="128" source="../assets/sprites/blocks/sandCenter.png"/>
-  </tile>
-  <tile id="7">
-   <image width="128" height="128" source="../assets/sprites/blocks/snowCenter_rounded.png"/>
-  </tile>
-  <tile id="8">
-   <image width="128" height="128" source="../assets/sprites/blocks/snowCenter.png"/>
-  </tile>
-  <tile id="9">
-   <image width="128" height="128" source="../assets/sprites/blocks/stoneCenter_rounded.png"/>
-  </tile>
-  <tile id="10">
-   <image width="128" height="128" source="../assets/sprites/blocks/stoneCenter.png"/>
-  </tile>
-  <tile id="11">
-   <image width="128" height="128" source="../assets/sprites/items/coinGold.png"/>
-  </tile>
-  <tile id="12">
-   <image width="128" height="128" source="../assets/sprites/items/gemBlue.png"/>
-  </tile>
-  <tile id="13">
-   <image width="128" height="128" source="../assets/sprites/items/gemGreen.png"/>
-  </tile>
-  <tile id="14">
-   <image width="128" height="128" source="../assets/sprites/items/gemRed.png"/>
-  </tile>
-  <tile id="15">
-   <image width="128" height="128" source="../assets/sprites/items/gemYellow.png"/>
-  </tile>
-  <tile id="16">
-   <image width="128" height="128" source="../assets/sprites/items/coinBronze.png"/>
-  </tile>
-  <tile id="17">
-   <image width="128" height="128" source="../assets/sprites/items/coinGold.png"/>
-  </tile>
-  <tile id="18">
-   <image width="128" height="128" source="../assets/sprites/items/coinSilver.png"/>
-  </tile>
-  <tile id="19">
-   <image width="128" height="128" source="../assets/sprites/items/flagGreen_down.png"/>
-  </tile>
-  <tile id="20">
-   <image width="128" height="128" source="../assets/sprites/items/flagGreen1.png"/>
-  </tile>
-  <tile id="21">
-   <image width="128" height="128" source="../assets/sprites/items/flagGreen2.png"/>
-  </tile>
-  <tile id="22">
-   <image width="128" height="128" source="../assets/sprites/items/flagRed_down.png"/>
-  </tile>
-  <tile id="23">
-   <image width="128" height="128" source="../assets/sprites/items/flagRed1.png"/>
-  </tile>
-  <tile id="24">
-   <image width="128" height="128" source="../assets/sprites/items/flagRed2.png"/>
-  </tile>
-  <tile id="25">
-   <image width="128" height="128" source="../assets/sprites/items/flagYellow_down.png"/>
-  </tile>
-  <tile id="26">
-   <image width="128" height="128" source="../assets/sprites/items/flagYellow1.png"/>
-  </tile>
-  <tile id="27">
-   <image width="128" height="128" source="../assets/sprites/items/flagYellow2.png"/>
-  </tile>
-  <tile id="32">
-   <image width="128" height="128" source="../assets/sprites/items/keyBlue.png"/>
-  </tile>
-  <tile id="33">
-   <image width="128" height="128" source="../assets/sprites/items/keyGreen.png"/>
-  </tile>
-  <tile id="34">
-   <image width="128" height="128" source="../assets/sprites/items/keyRed.png"/>
-  </tile>
-  <tile id="35">
-   <image width="128" height="128" source="../assets/sprites/items/keyYellow.png"/>
-  </tile>
-  <tile id="36">
-   <image width="128" height="128" source="../assets/sprites/items/star.png"/>
-  </tile>
-  <tile id="37">
-   <image width="128" height="128" source="../assets/sprites/items/signExit.png"/>
-  </tile>
-  <tile id="38">
-   <image width="64" height="64" source="../assets/sprites/items/full_heart.png"/>
-  </tile>
-  <tile id="39">
-   <image width="128" height="128" source="../assets/sprites/enemies/fishBlue.png"/>
-  </tile>
-  <tile id="40">
-   <image width="70" height="70" source="../assets/sprites/items/lollipopGreen.png"/>
-  </tile>
-  <tile id="41">
-   <image width="64" height="64" source="../assets/sprites/items/block_05.png"/>
-  </tile>
-  <tile id="42">
-   <image width="128" height="128" source="../assets/sprites/other/lockRed.png"/>
-  </tile>
   <tile id="43">
-   <image width="128" height="128" source="../assets/sprites/blocks/sandCenter.png"/>
-  </tile>
-  <tile id="44">
    <image width="64" height="64" source="../assets/sprites/other/player_01.png"/>
   </tile>
  </tileset>
@@ -426,6 +302,6 @@
     <property name="name" value=""/>
    </properties>
   </object>
-  <object id="53" type="Player" gid="244" x="149.003" y="1130.89" width="64" height="64"/>
+  <object id="53" type="Player" gid="44" x="149.003" y="1100.89" width="64" height="64"/>
  </objectgroup>
 </map>

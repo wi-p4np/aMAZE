@@ -32,24 +32,14 @@ class GameScene(Scene):
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
     def setup(self):
-        print(1)
         self.bullet_controller = BulletController(self)
-        print(2)
         self.map = Map.load(self, "./maps/template.tmx")
-        print(3)
         self.players_list = arcade.SpriteList()
-        print(4)
-        print("player", self.player)
-        print("players_list", self.players_list)
         self.players_list.append(self.player)
-        print(5)
         self.player_physics_engine = PhysicsEngineSimple(self.player)
-        print(6)
         self.following_enemy = FollowingEnemy(self, "assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
-        print(7)
         self.shooting_enemy = ShootingEnemy(self, "assets/sprites/enemies/frog_move.png",
                                             TILE_SCALE, -100, 00, None, self.bullet_controller)
-
         self.gui = MyGui()
         self.camera = Camera(self.player)
 
