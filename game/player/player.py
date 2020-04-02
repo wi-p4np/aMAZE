@@ -9,7 +9,8 @@ class Player(arcade.AnimatedTimeSprite):
     def __init__(self, scale, x, y):
         super().__init__("assets/sprites/other/player_05.png", scale)
         self.collision_radius = 0
-
+        self.initial_x = x
+        self.initial_y = y
         self.center_x = x
         self.center_y = y
 
@@ -83,8 +84,8 @@ class Player(arcade.AnimatedTimeSprite):
 
     def on_hit(self):
         if not ScoreManager.isInvincible:
-            self.center_x = 128
-            self.center_y = 128
+            self.center_x = self.initial_x
+            self.center_y = self.initial_y
             ScoreManager.health -= 1
 
     def update(self):

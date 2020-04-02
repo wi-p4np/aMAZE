@@ -14,6 +14,7 @@ from game.items.star import Star
 from game.items.door import Door
 from game.items.door_key import DoorKey
 from game.map.parser.parser import MapParser
+from game.player.player import Player
 
 
 class Map:
@@ -40,7 +41,7 @@ class Map:
             _object.update(delta_time)
 
     @staticmethod
-    def load(file_path):
+    def load(game, file_path):
         config = MapParser.read(file_path)
 
         _map = Map()
@@ -99,6 +100,10 @@ class Map:
             elif tile.type == "Heart":
                 heart = Heart(tile.image, 1.0, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.objects_layer.append(heart)
+
+            elif tile.type == "Player":
+                player = Player(TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE)
+                game.player = player
 
             else:
                 sprite = MapObject(tile.image, TILE_SCALE,
