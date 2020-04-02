@@ -1,10 +1,11 @@
 import arcade
+from game.managers.score_manager import ScoreManager
 
-class PausePanel:
+class YouDiedPanel():
     def __init__(self):
         self.visible = False
         self.components = []
-        self.text = 'OPTIONS'
+        self.text = 'YOU DIED!'
         self.x = 0
         self.y = 0
 
@@ -12,7 +13,8 @@ class PausePanel:
         self.components.append(component)
 
     def update(self):
-        if self.visible:
+        if ScoreManager.deathWindowIsActive:
+            self.visible = True
             for component in self.components:
                 component.update()
         else:
@@ -38,6 +40,7 @@ class PausePanel:
                 component.center_x = viewport_left + self.x + component.initial_x
                 component.center_y = viewport_top + self.y - component.initial_y
                 component.draw()
-            arcade.draw_text(self.text, viewport_left + 370, viewport_top - 150, arcade.csscolor.WHITE_SMOKE, 50)
+            arcade.draw_text(self.text, viewport_left + 350, viewport_top - 300, arcade.csscolor.WHITE_SMOKE, 50)
         else:
             return
+
