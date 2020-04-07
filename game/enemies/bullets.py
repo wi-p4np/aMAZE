@@ -25,9 +25,10 @@ class Bullet(arcade.Sprite):
 			self.remove_from_sprite_lists()
 
 		check_walls = self.physics_engine.check(self.parent.game.map.walls_layer)
+		check_walls = self.physics_engine.check(self.parent.game.map.collidable_objects_layer)
+
 		if len(check_walls) > 0:
 			self.remove_from_sprite_lists()
 
 		self.physics_engine.resolve()
 		self.physics_engine.update()
-		return

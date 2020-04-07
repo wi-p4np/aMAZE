@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="50">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="52">
  <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128" tilecount="41" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -266,5 +266,7 @@
   <object id="43" type="DestroyableWall" gid="42" x="383" y="386" width="128" height="128"/>
   <object id="44" type="Heart" gid="39" x="523.939" y="1142.39" width="107" height="112"/>
   <object id="47" type="Player" gid="45" x="297" y="722" width="64" height="64"/>
+  <object id="50" type="FollowingEnemy" gid="22" x="768" y="508" width="128" height="128"/>
+  <object id="51" type="ShootingEnemy" gid="24" x="127" y="508" width="128" height="128"/>
  </objectgroup>
 </map>
