@@ -23,32 +23,31 @@ class GameScene(Scene):
         self.player_physics_engine = None
         self.player = None
         self.gui = None
-        self.following_enemy = None
+        #self.following_enemy = None
         self.players_list = None
         self.camera = None
-        self.shooting_enemy = None
+        #self.shooting_enemy = None
         self.players_list = None
-        self.bullet_controller = None
+        #self.bullet_controller = None
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
     def setup(self):
-        self.bullet_controller = BulletController(self)
+        #self.bullet_controller = BulletController(self)
         self.map = Map.load(self, "./maps/template.tmx")
         self.players_list = arcade.SpriteList()
         self.players_list.append(self.player)
         self.player_physics_engine = PhysicsEngineSimple(self.player)
-        self.following_enemy = FollowingEnemy(self, "assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
-        self.shooting_enemy = ShootingEnemy(self, "assets/sprites/enemies/frog_move.png",
-                                            TILE_SCALE, -100, 00, None, self.bullet_controller)
+        #self.following_enemy = FollowingEnemy(self, "assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
+        #self.shooting_enemy = ShootingEnemy(self, "assets/sprites/enemies/frog_move.png", TILE_SCALE, -100, 00, None, self.bullet_controller)
         self.gui = MyGui()
         self.camera = Camera(self.player)
 
     def draw(self):
         self.map.draw()
         self.player.draw()
-        self.following_enemy.draw()
-        self.bullet_controller.draw()
-        self.shooting_enemy.draw()
+        #self.following_enemy.draw()
+        #self.bullet_controller.draw()
+        #self.shooting_enemy.draw()
         self.gui.draw()
 
     def update(self, delta_time):
@@ -60,10 +59,10 @@ class GameScene(Scene):
         self.player.update()
         self.player_physics_engine.update()
         self.map.update(delta_time)
-        self.following_enemy.update(delta_time)
+        #self.following_enemy.update(delta_time)
         self.camera.update(delta_time)
-        self.bullet_controller.update(delta_time)
-        self.shooting_enemy.update(delta_time)
+        #self.bullet_controller.update(delta_time)
+        #self.shooting_enemy.update(delta_time)
 
         self.player_physics_engine.check(self.map.walls_layer)
 
@@ -81,10 +80,13 @@ class GameScene(Scene):
         for hit in hit_list:
             hit.on_hit()
 
-        players_list = arcade.check_for_collision_with_list(self.following_enemy, self.players_list)
-        if len(players_list) > 0:
-            for player in players_list:
-                player.on_hit()
+
+        #players_list = arcade.check_for_collision_with_list(self.following_enemy, self.players_list)
+        #if len(players_list) > 0:
+            #for player in players_list:
+                #player.on_hit()
+
+
 
         self.player_physics_engine.resolve()
 

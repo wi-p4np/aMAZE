@@ -15,13 +15,21 @@ from game.items.door import Door
 from game.items.door_key import DoorKey
 from game.map.parser.parser import MapParser
 from game.player.player import Player
+from game.enemies.bullet_controller import BulletController
+from game.enemies.following_enemy import FollowingEnemy
+from game.enemies.shooting_enemy import ShootingEnemy
 
 
 class Map:
     def __init__(self):
+        self.bullet_controller = BulletController(self)
         self.walls_layer = arcade.SpriteList()
         self.objects_layer = arcade.SpriteList()
         self.enemies_layer = arcade.SpriteList()
+        self.following_enemy = None
+        self.shooting_enemy = None
+        #self.enemies_layer.append(self.following_enemy)
+        #self.enemies_layer.append(self.shooting_enemy)
         self.collidable_objects_layer = arcade.SpriteList()
 
     def draw(self):
@@ -60,6 +68,16 @@ class Map:
             if tile.type == "Enemy":
                 enemy = Enemy(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
                 _map.enemies_layer.append(enemy)
+
+            elif tile.type == "FollowingEnemy":
+                following_enemy = FollowingEnemy(enemy, "assets/sprites/enemies/fly.png", TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
+                #following_enemy = Enemy(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
+                _map.enemies_layer.append(following_enemy)
+                #print("appended")
+
+            elif tile.type == "ShootingEnemy":
+                shooting_enemy = ShootingEnemy(enemy, "assets/sprites/enemies/frog_move.png", TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties, map.bullet_controller)
+                _map.enemies_layer.append(shooting_enemy)
 
             elif tile.type == "Gem":
                 gem = Gem(tile.image, TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties)
@@ -112,3 +130,5 @@ class Map:
 
                 _map.objects_layer.append(sprite)
         return _map
+
+#TODO: Update the map to use new placeholders sprites with the right types (more than 1 enemy)

@@ -8,7 +8,6 @@ from game.physics import PhysicsEngineSimple
 class FollowingEnemy(Enemy):
     def __init__(self, parent, asset_path, scale, x, y, properties):
         super().__init__(asset_path, scale, x, y, properties)
-
         self.physics_engine = PhysicsEngineSimple(self)
         self.parent = parent
 
@@ -24,7 +23,8 @@ class FollowingEnemy(Enemy):
             self.change_x = 0
             self.change_y = 0
 
-        self.physics_engine.check(self.parent.map.walls_layer)
+        #self.physics_engine.check(self.parent.map.walls_layer)
+
 
         self.physics_engine.resolve()
         self.physics_engine.update()
