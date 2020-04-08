@@ -1,6 +1,7 @@
 import arcade
 from game.items.map_object import MapObject
 from game.managers.score_manager import ScoreManager
+from game.managers.sounds_manager import SoundsManager
 
 SPRITES = {
     'gem': 'assets/sprites/items/gemBlue.png',
@@ -15,13 +16,16 @@ SCORE_SCALING = 0.40
 # class Score():
     # def __init__(self):
 
+
 class Score(MapObject):
     def __init__(self, asset_path, scale, x, y, properties):
         super().__init__(asset_path, scale, x, y, properties)
 
     def on_hit(self):
         ScoreManager.score +=1
+        SoundsManager.play("coins")
         super().on_hit()
+
 
 class ScoreLabel(Score):
     def __init__(self, icon_type, center_x, center_y):

@@ -1,4 +1,5 @@
 from game.items.map_object import MapObject
+from game.managers.sounds_manager import SoundsManager
 
 
 class Star(MapObject):
@@ -6,5 +7,6 @@ class Star(MapObject):
         super().__init__(asset_path, scale, x, y, properties)
 
     def on_hit(self):
+        SoundsManager.play("stars")
         print("I've found a star")
         super().on_hit()

@@ -1,6 +1,7 @@
 from game.items.map_object import MapObject
 from game.managers.score_manager import ScoreManager
 from game.managers.score_manager import MAX_HEALTH
+from game.managers.sounds_manager import SoundsManager
 
 
 class Heart(MapObject):
@@ -10,4 +11,6 @@ class Heart(MapObject):
 	def on_hit(self):
 		if ScoreManager.health < MAX_HEALTH:
 			ScoreManager.health += 1
+			SoundsManager.play("hearts")
 		super().on_hit()
+

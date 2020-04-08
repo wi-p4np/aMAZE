@@ -1,6 +1,7 @@
 import arcade
 from game.items.map_object import MapObject
 from game.managers.score_manager import ScoreManager
+from game.managers.sounds_manager import SoundsManager
 
 MAX_TIMER = 0.5
 
@@ -20,15 +21,13 @@ class DestroyableWall(MapObject):
             else:
                 self.remove_from_sprite_lists()
         self.update_colour()
-
+        SoundsManager.play("destroy")
 
     def update_colour(self):
         if self.health == 2:
             self.color: RGB = (20, 50, 50) #dark orange
         elif self.health == 1:
             self.color: RGB = (50, 200, 200) #yellow green
-
-
 
     def update(self, delta_time):
         self.timer = max(self.timer - delta_time, 0)

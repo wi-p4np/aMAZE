@@ -16,6 +16,7 @@ from game.enemies.bullet_controller import BulletController
 from game.enemies.shooting_enemy import ShootingEnemy
 from game.camera.camera import Camera
 from game.scene.scene import Scene
+from game.managers.sounds_manager import SoundsManager
 
 
 class GameScene(Scene):
@@ -54,6 +55,17 @@ class GameScene(Scene):
 
         self.gui = MyGui()
         self.camera = Camera(self.player)
+
+        SoundsManager.register_sound("coins", "./assets/sounds/coins.wav"),
+        SoundsManager.register_sound("hearts", "./assets/sounds/hearts.wav"),
+        SoundsManager.register_sound("gems", "./assets/sounds/gems.wav"),
+        SoundsManager.register_sound("stars", "./assets/sounds/stars.wav")
+        SoundsManager.register_sound("losing", "./assets/sounds/losing_sound.wav"),
+        SoundsManager.register_sound("shooting", "./assets/sounds/shooting_enemy.wav"),
+        SoundsManager.register_sound("win", "./assets/sounds/finish_level.wav"),
+        SoundsManager.register_sound("invincible", "./assets/sounds/invincibility.wav"),
+        SoundsManager.register_sound("door", "./assets/sounds/door_key.wav"),
+        SoundsManager.register_sound("destroy", "./assets/sounds/destroy_wall.wav")
 
     def draw(self):
         self.map.draw()
@@ -99,6 +111,7 @@ class GameScene(Scene):
         if len(players_list) > 0:
             for player in players_list:
                 player.on_hit()
+                SoundsManager.play('losing')
 
         self.player_physics_engine.resolve()
 

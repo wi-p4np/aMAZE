@@ -1,4 +1,5 @@
 from game.items.map_object import MapObject
+from game.managers.sounds_manager import SoundsManager
 
 
 class Enemy(MapObject):
@@ -12,3 +13,4 @@ class Enemy(MapObject):
 
     def on_hit(self):
         self.kill()
+        SoundsManager.play("losing")

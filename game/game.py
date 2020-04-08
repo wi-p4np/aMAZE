@@ -45,9 +45,6 @@ class MyGame(arcade.Window):
     def update(self, delta_time):
         self.current.update(delta_time)
 
-    def update(self, delta_time):
-        self.current.update(delta_time)
-
 
 def main():
     window = MyGame()

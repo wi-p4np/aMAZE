@@ -2,6 +2,7 @@ import arcade
 from game.items.map_object import MapObject
 from game.managers.event_manager import EventManager
 from math import sin
+from game.managers.sounds_manager import SoundsManager
 
 class DoorKey(MapObject):
 
@@ -13,6 +14,7 @@ class DoorKey(MapObject):
     def on_hit(self):
         event_name = "ON_DOOR_{}_OPEN".format(self.door_id)
         EventManager.emit(event_name)
+        SoundsManager.play("door")
         self.remove_from_sprite_lists()
 
     def update(self, delta_time):

@@ -1,6 +1,7 @@
 import arcade
 from game.consts import BULLET_SCALE
 from game.physics import PhysicsEngineSimple
+from game.managers.sounds_manager import SoundsManager
 
 
 class Bullet(arcade.Sprite):
@@ -20,6 +21,7 @@ class Bullet(arcade.Sprite):
 		if len(results) > 0:
 			player = results[0]
 			player.on_hit()
+			SoundsManager.play("losing")
 			self.remove_from_sprite_lists()
 
 		check_walls = self.physics_engine.check(self.parent.game.map.walls_layer)

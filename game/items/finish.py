@@ -1,5 +1,6 @@
 from game.items.map_object import MapObject
 from game.managers.score_manager import ScoreManager
+from game.managers.sounds_manager import SoundsManager
 
 
 class Finish(MapObject):
@@ -8,4 +9,5 @@ class Finish(MapObject):
 
     def on_hit(self):
         ScoreManager.gameIsActive = False
+        SoundsManager.play("win")
         print("I've finished the level")
