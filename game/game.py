@@ -5,6 +5,8 @@ from game.gui.gui import MyGui
 from game.managers.score_manager import ScoreManager
 from game.scene.game_scene import GameScene
 from game.scene.menu_scene import GameMenu
+from game.map.map import Map
+from game.player.player import Player
 
 
 class MyGame(arcade.Window):
@@ -18,6 +20,7 @@ class MyGame(arcade.Window):
         }
 
         self.current = self.scenes['menu']
+        self.player = None
 
     def setup(self):
         self.current.setup()
