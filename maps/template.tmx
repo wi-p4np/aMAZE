@@ -249,31 +249,31 @@
     <property name="name" value=""/>
    </properties>
   </object>
-  <object id="16" type="InvincibilityCandy" gid="41" x="395.88" y="222.513" width="70" height="70"/>
+  <object id="16" type="InvincibilityCandy" gid="41" x="789.819" y="480.089" width="70" height="70"/>
   <object id="10" type="Finish" gid="38" x="1022.39" y="512.912" width="128" height="128"/>
   <object id="11" type="Heart" gid="39" x="528.783" y="1139.35" width="107" height="112"/>
   <object id="12" type="Enemy" gid="40" x="763.176" y="253.684" width="128" height="128"/>
-  <object id="39" type="Door" gid="43" x="256.46" y="257.768" width="128" height="128">
+  <object id="39" type="Door" gid="43" x="129.187" y="254.738" width="128" height="128">
    <properties>
     <property name="doorId" type="int" value="1"/>
    </properties>
   </object>
-  <object id="40" type="Key" gid="35" x="126.293" y="258.911" width="128" height="128">
+  <object id="40" type="Key" gid="35" x="256.596" y="255.881" width="128" height="128">
    <properties>
     <property name="doorId" type="int" value="1"/>
    </properties>
   </object>
   <object id="41" type="Enemy" gid="40" x="1028.49" y="640.677" width="128" height="128"/>
-  <object id="42" type="Enemy" gid="40" x="386.157" y="128.01" width="128" height="128"/>
+  <object id="42" type="Enemy" gid="40" x="512.884" y="766.98" width="128" height="128"/>
   <object id="43" type="DestroyableWall" gid="42" x="517.2" y="894.206" width="128" height="128"/>
   <object id="44" type="DestroyableWall" gid="42" x="640.878" y="1021.87" width="128" height="128"/>
   <object id="45" type="DestroyableWall" gid="42" x="640.878" y="1153.53" width="128" height="128"/>
-  <object id="46" type="Door" gid="43" x="262.445" y="381.447" width="128" height="128">
+  <object id="46" type="Door" gid="43" x="129.112" y="384.477" width="128" height="128">
    <properties>
     <property name="doorId" type="int" value="1"/>
    </properties>
   </object>
-  <object id="47" type="Key" gid="35" x="132.277" y="384.584" width="128" height="128">
+  <object id="47" type="Key" gid="35" x="259.55" y="384.584" width="128" height="128">
    <properties>
     <property name="doorId" type="int" value="1"/>
    </properties>
