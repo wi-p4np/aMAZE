@@ -52,10 +52,8 @@ class GameScene(Scene):
         self.gui.draw()
 
     def update(self, delta_time):
-        self.gui.update(delta_time)
 
-        if not ScoreManager.gameIsActive:
-            return
+        self.gui.update(delta_time)
 
         self.player.update()
         self.player_physics_engine.update()
@@ -87,6 +85,7 @@ class GameScene(Scene):
                 player.on_hit()
 
         self.player_physics_engine.resolve()
+
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.gui.on_mouse_press(x, y, button, modifiers)

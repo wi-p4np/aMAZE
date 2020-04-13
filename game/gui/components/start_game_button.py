@@ -3,15 +3,15 @@ from game.gui.components.button import Button
 from game.managers.scene_manager import SceneManager
 
 BUTTON_SPRITE = 'assets/sprites/UI/grey_button01.png'
-SCALING = 1
+SCALING = 0.8
 
 
-class QuitButton(Button):
+class StartButton(Button):
     def __init__(self, center_x, center_y,):
         super().__init__(center_x, center_y)
 
         self.icon = arcade.Sprite(BUTTON_SPRITE, SCALING)
-        self.text = 'MENU'
+        self.text = 'START'
         self.center_x = center_x
         self.center_y = center_y
         self.pressed = False
@@ -26,14 +26,11 @@ class QuitButton(Button):
 
     def on_press(self):
         self.pressed = True
+        SceneManager.change_scene('game')
 
     def on_release(self):
         if self.pressed:
             self.pressed = False
-
-    def update(self):
-        if self.pressed:
-            SceneManager.change_scene('menu')
 
     def draw(self):
         self.icon.center_x = self.center_x
