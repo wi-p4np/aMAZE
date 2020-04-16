@@ -22,7 +22,7 @@ from game.enemies.shooting_enemy import ShootingEnemy
 
 class Map:
     def __init__(self):
-        self.bullet_controller = BulletController(self)
+        #self.bullet_controller = BulletController()
         self.walls_layer = arcade.SpriteList()
         self.objects_layer = arcade.SpriteList()
         self.enemies_layer = arcade.SpriteList()
@@ -51,6 +51,7 @@ class Map:
 
     @staticmethod
     def load(game, file_path):
+
         config = MapParser.read(file_path)
 
         _map = Map()
@@ -130,4 +131,5 @@ class Map:
                     tile.properties)
 
                 _map.objects_layer.append(sprite)
+
         return _map
