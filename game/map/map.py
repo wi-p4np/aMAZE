@@ -22,7 +22,7 @@ from game.enemies.shooting_enemy import ShootingEnemy
 
 class Map:
     def __init__(self):
-        self.bullet_controller = BulletController(self)
+        #self.bullet_controller = BulletController()
         self.walls_layer = arcade.SpriteList()
         self.objects_layer = arcade.SpriteList()
         self.enemies_layer = arcade.SpriteList()
@@ -42,6 +42,7 @@ class Map:
         for _object in self.objects_layer:
             _object.update(delta_time)
 
+
         for _object in self.enemies_layer:
             _object.update(delta_time)
 
@@ -50,6 +51,7 @@ class Map:
 
     @staticmethod
     def load(game, file_path):
+
         config = MapParser.read(file_path)
 
         _map = Map()
@@ -76,7 +78,7 @@ class Map:
                 #print("appended")
 
             elif tile.type == "ShootingEnemy":
-                shooting_enemy = ShootingEnemy(enemy, "assets/sprites/enemies/frog_move.png", TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties, map.bullet_controller)
+                shooting_enemy = ShootingEnemy(enemy, "assets/sprites/enemies/frog_move.png", TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE, tile.properties, BulletController(game))
                 _map.enemies_layer.append(shooting_enemy)
 
             elif tile.type == "Gem":
@@ -129,6 +131,7 @@ class Map:
                     tile.properties)
 
                 _map.objects_layer.append(sprite)
+
         return _map
 
 #TODO: Update the map to use new placeholders sprites with the right types (more than 1 enemy)

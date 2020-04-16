@@ -33,7 +33,7 @@ class ShootingEnemy(FollowingEnemy):
                 self.change_x = _x * self.speed / d
                 self.change_y = _y * self.speed / d
 
-        #self.physics_engine.check(self.parent.map.walls_layer)
+        self.physics_engine.check(self.parent.map.walls_layer)
 
         self.physics_engine.resolve()
         self.physics_engine.update()

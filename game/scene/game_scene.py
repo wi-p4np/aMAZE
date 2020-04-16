@@ -32,14 +32,20 @@ class GameScene(Scene):
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
     def setup(self):
+        self.gui = MyGui()
+
         #self.bullet_controller = BulletController(self)
-        self.map = Map.load(self, "./maps/template.tmx")
+        self.map = Map.load(self.game, "./maps/template.tmx")
+
         self.players_list = arcade.SpriteList()
+
         self.players_list.append(self.player)
+
         self.player_physics_engine = PhysicsEngineSimple(self.player)
+
+
         #self.following_enemy = FollowingEnemy(self, "assets/sprites/enemies/fly.png", TILE_SCALE, 400, 400, None)
         #self.shooting_enemy = ShootingEnemy(self, "assets/sprites/enemies/frog_move.png", TILE_SCALE, -100, 00, None, self.bullet_controller)
-        self.gui = MyGui()
         self.camera = Camera(self.player)
 
     def draw(self):
@@ -56,9 +62,12 @@ class GameScene(Scene):
         if not ScoreManager.gameIsActive:
             return
 
-        self.player.update()
-        self.player_physics_engine.update()
         self.map.update(delta_time)
+
+        self.player.update()
+
+        self.player_physics_engine.update()
+
         #self.following_enemy.update(delta_time)
         self.camera.update(delta_time)
         #self.bullet_controller.update(delta_time)
