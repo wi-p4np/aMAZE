@@ -4,16 +4,17 @@ from game.gui.components.gems_label import GemsLabel
 from game.gui.panel import GUIPanel
 from game.gui.components.health_bar import HealthBar
 from game.gui.components.pause_button import PauseButton
-from game.gui.components.pause_button import PausePanel
+from game.gui.components.pause_panel import PausePanel
 from game.gui.components.you_died_panel import YouDiedPanel
 from game.gui.components.resume_button import ResumeButton
-from game.gui.components.quit_button import QuitButton
+from game.gui.components.menu_button import MenuButton
 from game.managers.score_manager import ScoreManager
 from game.gui.components.pause_background import PauseBackground
 from game.consts import SCREEN_WIDTH
 
 class MyGui:
     def __init__(self):
+
         self.invincibility_candy_bar = InvincibilityCandyBar()
         self.pause_view = PausePanel()
         self.you_died_panel = YouDiedPanel()
@@ -24,17 +25,15 @@ class MyGui:
         self.pause_view.add_component(PauseBackground())
         self.top_panel.add_component(PauseButton(self.pause_view, 910, 600))
         self.pause_view.add_component(ResumeButton(self.pause_view, SCREEN_WIDTH/2, 250))
-        self.pause_view.add_component(QuitButton(SCREEN_WIDTH/2, 320))
+        self.pause_view.add_component(MenuButton(SCREEN_WIDTH/2, 320))
         self.you_died_panel.add_component(PauseBackground())
-        self.you_died_panel.add_component(QuitButton(SCREEN_WIDTH/2, 340))
-
+        self.you_died_panel.add_component(MenuButton(SCREEN_WIDTH/2, 340))
 
     def draw(self):
         self.top_panel.draw()
         self.invincibility_candy_bar.draw()
         self.pause_view.draw()
         self.you_died_panel.draw()
-
 
     def update(self, delta_time):
         self.invincibility_candy_bar.update(delta_time)
@@ -50,7 +49,6 @@ class MyGui:
             ScoreManager.gameIsActive = True
         if ScoreManager.health <= 0:
            ScoreManager.gameIsActive = False
-
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.pause_view.on_mouse_press(x, y, button, modifiers)

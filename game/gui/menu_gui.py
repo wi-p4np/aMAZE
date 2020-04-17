@@ -1,20 +1,18 @@
-from game.gui.panel import GUIPanel
-from game.gui.components.menu_panel import MenuPanel
-from game.gui.components.pause_button import PauseButton
-from game.gui.components.select_level_button import SelectLevelButton
-from game.gui.components.settings_button import SettingsButton
-from game.gui.components.levels_panel import LevelsPanel
-from game.gui.components.settings_panel import SettingsPanel
-from game.gui.components.resume_button import ResumeButton
-from game.gui.components.start_game_button import StartButton
-from game.gui.components.exit_button import ExitButton
-from game.gui.components.back_to_menu_button import BackToMenu
+from game.gui.menu_components.menu_panel import MenuPanel
+from game.gui.menu_components.select_level_button import SelectLevelButton
+from game.gui.menu_components.settings_button import SettingsButton
+from game.gui.menu_components.levels_panel import LevelsPanel
+from game.gui.menu_components.settings_panel import SettingsPanel
+from game.gui.menu_components.start_game_button import StartButton
+from game.gui.menu_components.exit_button import ExitButton
+from game.gui.menu_components.back_to_menu_button import BackToMenu
 from game.gui.components.pause_background import PauseBackground
 from game.consts import SCREEN_WIDTH
 
 
 class MenuGui:
     def __init__(self):
+
         self.menu_panel = MenuPanel()
         self.menu_panel.add_component(PauseBackground())
         self.menu_panel.add_component(StartButton(SCREEN_WIDTH / 2, 250))
