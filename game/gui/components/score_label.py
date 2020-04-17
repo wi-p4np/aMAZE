@@ -1,5 +1,8 @@
 import arcade
+
 from game.gui.components.component import GUIComponent
+from game.items.map_object import MapObject
+from game.managers.score_manager import ScoreManager
 
 SPRITES = {
     'gem': 'assets/sprites/items/gemBlue.png',
