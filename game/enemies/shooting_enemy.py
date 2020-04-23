@@ -13,6 +13,7 @@ class ShootingEnemy(FollowingEnemy):
 
         self.shooting_timer = 0
         self.bullet_controller = bullet_controller
+        self.map = map
 
     def update(self, delta_time):
         _x = ScoreManager.playerX - self.center_x

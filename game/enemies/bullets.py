@@ -15,6 +15,7 @@ class Bullet(arcade.Sprite):
 		self.change_x = change_x * speed
 		self.change_y = change_y * speed
 		self.physics_engine = PhysicsEngineSimple(self)
+		self.map = map
 
 	def update(self):
 		results = self.physics_engine.check(self.parent.game.players_list)

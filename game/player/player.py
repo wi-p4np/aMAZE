@@ -14,6 +14,8 @@ class Player(arcade.AnimatedTimeSprite):
         self.initial_y = y
         self.center_x = x
         self.center_y = y
+        ScoreManager.playerX = self.center_x
+        ScoreManager.playerY = self.center_y
 
         self.animations = {
             "right": [
