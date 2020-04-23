@@ -8,11 +8,12 @@ from game.physics import PhysicsEngineSimple
 
 
 class ShootingEnemy(FollowingEnemy):
-    def __init__(self, parent, asset_path, scale, x, y, properties, bullet_controller):
-        super().__init__(parent, asset_path, scale, x, y, properties)
+    def __init__(self, map, asset_path, scale, x, y, properties, bullet_controller):
+        super().__init__(map, asset_path, scale, x, y, properties)
 
         self.shooting_timer = 0
         self.bullet_controller = bullet_controller
+        self.map = map
 
     def update(self, delta_time):
         _x = ScoreManager.playerX - self.center_x
@@ -33,7 +34,7 @@ class ShootingEnemy(FollowingEnemy):
                 self.change_x = _x * self.speed / d
                 self.change_y = _y * self.speed / d
 
-        self.physics_engine.check(self.parent.map.walls_layer)
+        self.physics_engine.check(self.map.walls_layer)
 
         self.physics_engine.resolve()
         self.physics_engine.update()

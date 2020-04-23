@@ -35,7 +35,7 @@ class GameScene(Scene):
         self.gui = MyGui()
 
         #self.bullet_controller = BulletController(self)
-        self.map = Map.load(self.game, "./maps/template.tmx")
+        self.map = Map.load(self, "./maps/template.tmx")
 
         self.players_list = arcade.SpriteList()
 
