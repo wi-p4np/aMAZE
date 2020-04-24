@@ -7,6 +7,7 @@ from game.gui.components.pause_button import PauseButton
 from game.gui.components.pause_panel import PausePanel
 from game.gui.components.you_died_panel import YouDiedPanel
 from game.gui.components.resume_button import ResumeButton
+from game.gui.components.restart_level_button import RestartButton
 from game.gui.components.menu_button import MenuButton
 from game.managers.score_manager import ScoreManager
 from game.gui.components.pause_background import PauseBackground
@@ -25,6 +26,7 @@ class MyGui:
         self.pause_view.add_component(PauseBackground())
         self.top_panel.add_component(PauseButton(self.pause_view, 910, 600))
         self.pause_view.add_component(ResumeButton(self.pause_view, SCREEN_WIDTH/2, 250))
+        self.pause_view.add_component(RestartButton(self.pause_view, SCREEN_WIDTH / 2, 390))
         self.pause_view.add_component(MenuButton(SCREEN_WIDTH/2, 320))
         self.you_died_panel.add_component(PauseBackground())
         self.you_died_panel.add_component(MenuButton(SCREEN_WIDTH/2, 340))

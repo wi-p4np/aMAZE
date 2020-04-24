@@ -52,40 +52,39 @@ class GameScene(Scene):
         self.gui.draw()
 
     def update(self, delta_time):
-
         self.gui.update(delta_time)
+        
+        if ScoreManager.gameIsActive:
+            self.player.update()
+            self.player_physics_engine.update()
+            self.map.update(delta_time)
+            self.following_enemy.update(delta_time)
+            self.camera.update(delta_time)
+            self.bullet_controller.update(delta_time)
+            self.shooting_enemy.update(delta_time)
 
-        self.player.update()
-        self.player_physics_engine.update()
-        self.map.update(delta_time)
-        self.following_enemy.update(delta_time)
-        self.camera.update(delta_time)
-        self.bullet_controller.update(delta_time)
-        self.shooting_enemy.update(delta_time)
+            self.player_physics_engine.check(self.map.walls_layer)
 
-        self.player_physics_engine.check(self.map.walls_layer)
+            destroyable_hit_list = self.player_physics_engine.check(self.map.collidable_objects_layer)
+            for hit in destroyable_hit_list:
+                hit.on_hit()
 
-        destroyable_hit_list = self.player_physics_engine.check(self.map.collidable_objects_layer)
-        for hit in destroyable_hit_list:
-            hit.on_hit()
+            enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
+            if len(enemy_hit_list) > 0:
+                self.player.on_hit()
+                for enemy in enemy_hit_list:
+                    enemy.on_hit()
 
-        enemy_hit_list = arcade.check_for_collision_with_list(self.player, self.map.enemies_layer)
-        if len(enemy_hit_list) > 0:
-            self.player.on_hit()
-            for enemy in enemy_hit_list:
-                enemy.on_hit()
+            hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
+            for hit in hit_list:
+                hit.on_hit()
 
-        hit_list = arcade.check_for_collision_with_list(self.player, self.map.objects_layer)
-        for hit in hit_list:
-            hit.on_hit()
+            players_list = arcade.check_for_collision_with_list(self.following_enemy, self.players_list)
+            if len(players_list) > 0:
+                for player in players_list:
+                    player.on_hit()
 
-        players_list = arcade.check_for_collision_with_list(self.following_enemy, self.players_list)
-        if len(players_list) > 0:
-            for player in players_list:
-                player.on_hit()
-
-        self.player_physics_engine.resolve()
-
+            self.player_physics_engine.resolve()
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.gui.on_mouse_press(x, y, button, modifiers)

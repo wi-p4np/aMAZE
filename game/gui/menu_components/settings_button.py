@@ -5,6 +5,7 @@ from game.gui.components.button import Button
 BUTTON_SPRITE = 'assets/sprites/UI/grey_button01.png'
 SCALING = 0.80
 
+
 class SettingsButton(Button):
     def __init__(self, window, parent_window, center_x, center_y,):
         super().__init__(center_x, center_y)
