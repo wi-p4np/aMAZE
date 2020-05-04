@@ -29,7 +29,7 @@ class ShootingEnemy(FollowingEnemy):
                 if self.shooting_timer <= 0:
                     self.bullet_controller.shoot_bullet(self.center_x, self.center_y, _x / d, _y / d, 3)
                     self.shooting_timer = 2
-                    SoundsManager.play('shooting')
+                    SoundsManager.play_sound('shooting')
 
             if d <= SHOOTING_DISTANCE_MIN:
                 self.change_x = _x * self.speed / d

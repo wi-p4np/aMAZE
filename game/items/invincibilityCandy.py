@@ -11,6 +11,6 @@ class InvincibilityCandy(MapObject):
     def on_hit(self):
         ScoreManager.invincibilityTimer = MAX_INVINCIBILITY_TIMER
         ScoreManager.isInvincible = True
-        SoundsManager.play("invincible")
+        SoundsManager.play_sound("invincible")
         super().on_hit()
 

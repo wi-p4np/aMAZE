@@ -9,5 +9,5 @@ class Finish(MapObject):
 
     def on_hit(self):
         ScoreManager.gameIsActive = False
-        SoundsManager.play("win")
+        SoundsManager.play_sound("win")
         print("I've finished the level")

@@ -5,6 +5,7 @@ from game.gui.gui import MyGui
 from game.managers.score_manager import ScoreManager
 from game.scene.game_scene import GameScene
 from game.scene.menu_scene import GameMenu
+from game.managers.sounds_manager import SoundsManager
 
 
 class MyGame(arcade.Window):
@@ -21,6 +22,7 @@ class MyGame(arcade.Window):
 
     def setup(self):
         self.current.setup()
+        SoundsManager.play_music()
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.current.on_mouse_press(x, y, button, modifiers)

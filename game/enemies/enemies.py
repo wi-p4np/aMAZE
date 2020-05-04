@@ -13,4 +13,4 @@ class Enemy(MapObject):
 
     def on_hit(self):
         self.kill()
-        SoundsManager.play("losing")
+        SoundsManager.play_sound("losing")

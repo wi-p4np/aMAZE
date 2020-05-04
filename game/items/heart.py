@@ -11,6 +11,6 @@ class Heart(MapObject):
 	def on_hit(self):
 		if ScoreManager.health < MAX_HEALTH:
 			ScoreManager.health += 1
-			SoundsManager.play("hearts")
+			SoundsManager.play_sound("hearts")
 		super().on_hit()
 

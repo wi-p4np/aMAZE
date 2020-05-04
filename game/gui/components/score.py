@@ -23,7 +23,7 @@ class Score(MapObject):
 
     def on_hit(self):
         ScoreManager.score +=1
-        SoundsManager.play("coins")
+        SoundsManager.play_sound("coins")
         super().on_hit()
 
 
