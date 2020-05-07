@@ -69,7 +69,7 @@ class GameScene(Scene):
         if ScoreManager.gameIsActive:
             self.update_game(delta_time)
 
-    def update_game(delta_time):
+    def update_game(self, delta_time):
         self.player.update()
         self.player_physics_engine.update()
         self.map.update(delta_time)
