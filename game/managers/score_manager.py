@@ -11,5 +11,6 @@ class ScoreManager:
     health = MAX_HEALTH
     pauseWindowIsActive = False
     deathWindowIsActive = False
+    startGame = False
     playerX = None
     playerY = None

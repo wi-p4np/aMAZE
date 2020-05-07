@@ -7,7 +7,7 @@ from game.scene.game_scene import GameScene
 from game.scene.menu_scene import GameMenu
 from game.map.map import Map
 from game.player.player import Player
-
+from game.managers.scene_manager import SceneManager
 
 class MyGame(arcade.Window):
 
@@ -21,6 +21,7 @@ class MyGame(arcade.Window):
 
         self.current = self.scenes['menu']
         self.player = None
+        SceneManager.setup(self)
 
     def setup(self):
         self.current.setup()
