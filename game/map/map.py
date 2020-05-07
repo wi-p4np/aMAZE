@@ -34,8 +34,8 @@ class Map:
     def draw(self):
         self.walls_layer.draw()
         self.objects_layer.draw()
-        for _object in self.enemies_layer:
-            _object.draw()
+        for enemy in self.enemies_layer:
+            enemy.draw()
         self.collidable_objects_layer.draw()
 
     def update(self, delta_time):

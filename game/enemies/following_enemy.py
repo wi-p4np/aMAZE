@@ -28,4 +28,3 @@ class FollowingEnemy(Enemy):
 
         self.physics_engine.resolve()
         self.physics_engine.update()
-
