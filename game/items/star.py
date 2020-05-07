@@ -7,6 +7,6 @@ class Star(MapObject):
         super().__init__(asset_path, scale, x, y, properties)
 
     def on_hit(self):
-        SoundsManager.play("stars")
+        SoundsManager.play_sound("stars")
         print("I've found a star")
         super().on_hit()

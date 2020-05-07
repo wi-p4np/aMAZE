@@ -3,6 +3,7 @@ import arcade
 from game.consts import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, TILE_SCALE, PLAYER_SCALE
 from game.gui.gui import MyGui
 from game.managers.score_manager import ScoreManager
+from game.managers.sounds_manager import SoundsManager
 from game.scene.game_scene import GameScene
 from game.scene.menu_scene import GameMenu
 from game.map.map import Map
@@ -23,6 +24,7 @@ class MyGame(arcade.Window):
         self.current = self.scenes['menu']
         self.player = None
         SceneManager.setup(self)
+        SoundsManager.load_settings()
 
     def setup(self):
         self.current.setup()

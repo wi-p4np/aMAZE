@@ -54,6 +54,8 @@ class GameScene(Scene):
         SoundsManager.register_sound("invincible", "./assets/sounds/invincibility.wav"),
         SoundsManager.register_sound("door", "./assets/sounds/door_key.wav"),
         SoundsManager.register_sound("destroy", "./assets/sounds/destroy_wall.wav")
+        SoundsManager.setup_music("./assets/sounds/game_music.wav")
+        SoundsManager.play_music()
 
     def draw(self):
         self.map.draw()
@@ -98,6 +100,7 @@ class GameScene(Scene):
         if len(players_list) > 0:
             for player in players_list:
                 player.on_hit()
+                SoundsManager.play_sound('losing')
 
         self.player_physics_engine.resolve()
 
