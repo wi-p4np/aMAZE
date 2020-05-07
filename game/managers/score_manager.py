@@ -14,3 +14,4 @@ class ScoreManager:
     startGame = False
     playerX = None
     playerY = None
+

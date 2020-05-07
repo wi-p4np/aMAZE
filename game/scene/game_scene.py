@@ -64,9 +64,12 @@ class GameScene(Scene):
         self.gui.draw()
 
     def update(self, delta_time):
-
         self.gui.update(delta_time)
 
+        if ScoreManager.gameIsActive:
+            self.update_game(delta_time)
+
+    def update_game(self, delta_time):
         self.player.update()
         self.player_physics_engine.update()
         self.map.update(delta_time)
@@ -95,10 +98,8 @@ class GameScene(Scene):
         if len(players_list) > 0:
             for player in players_list:
                 player.on_hit()
-                SoundsManager.play('losing')
 
         self.player_physics_engine.resolve()
-
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.gui.on_mouse_press(x, y, button, modifiers)

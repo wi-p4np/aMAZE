@@ -9,6 +9,7 @@ from game.map.map import Map
 from game.player.player import Player
 from game.managers.scene_manager import SceneManager
 
+
 class MyGame(arcade.Window):
 
     def __init__(self):
