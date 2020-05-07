@@ -1,5 +1,6 @@
 import arcade
 
+from game.managers.sounds_manager import SoundsManager
 from game.scene.scene import Scene
 
 
@@ -9,7 +10,7 @@ class GameMenu(Scene):
         super().__init__(game)
 
     def setup(self):
-        pass
+        SoundsManager.load_settings()
 
     def draw(self):
         pass

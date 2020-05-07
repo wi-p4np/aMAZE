@@ -68,6 +68,7 @@ class GameScene(Scene):
         SoundsManager.register_sound("destroy", "./assets/sounds/destroy_wall.wav")
 
         SoundsManager.setup_music("./assets/sounds/game_music.wav")
+        SoundsManager.play_music()
 
     def draw(self):
         self.map.draw()

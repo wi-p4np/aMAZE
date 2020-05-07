@@ -22,7 +22,6 @@ class MyGame(arcade.Window):
 
     def setup(self):
         self.current.setup()
-        SoundsManager.play_music()
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.current.on_mouse_press(x, y, button, modifiers)
