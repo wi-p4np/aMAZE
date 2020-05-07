@@ -38,3 +38,9 @@ class ShootingEnemy(FollowingEnemy):
 
         self.physics_engine.resolve()
         self.physics_engine.update()
+
+        self.bullet_controller.update(delta_time)
+
+    def draw(self):
+        self.bullet_controller.draw()
+        super().draw()

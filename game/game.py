@@ -49,7 +49,6 @@ class MyGame(arcade.Window):
         self.current.update(delta_time)
 
 
-
 def main():
     window = MyGame()
     window.setup()

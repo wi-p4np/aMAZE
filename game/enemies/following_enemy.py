@@ -23,10 +23,7 @@ class FollowingEnemy(Enemy):
             self.change_x = 0
             self.change_y = 0
 
-
         self.physics_engine.check(self.map.walls_layer)
-
 
         self.physics_engine.resolve()
         self.physics_engine.update()
-

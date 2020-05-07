@@ -34,13 +34,14 @@ class Map:
     def draw(self):
         self.walls_layer.draw()
         self.objects_layer.draw()
-        self.enemies_layer.draw()
+        for enemy in self.enemies_layer:
+            enemy.draw()
+
         self.collidable_objects_layer.draw()
 
     def update(self, delta_time):
         for _object in self.objects_layer:
             _object.update(delta_time)
-
 
         for _object in self.enemies_layer:
             _object.update(delta_time)
