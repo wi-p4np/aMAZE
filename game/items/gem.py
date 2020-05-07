@@ -11,7 +11,7 @@ class Gem(MapObject):
     def on_hit(self):
         ScoreManager.gem_score += 1
         super().on_hit()
-        SoundsManager.play('gems')
+        SoundsManager.play_sound('gems')
 
     def update(self, delta_time):
         self.timer += delta_time

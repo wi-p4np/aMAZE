@@ -13,6 +13,7 @@ from game.managers.score_manager import ScoreManager
 from game.gui.components.pause_background import PauseBackground
 from game.consts import SCREEN_WIDTH
 
+
 class MyGui:
     def __init__(self):
 

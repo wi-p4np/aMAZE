@@ -21,7 +21,7 @@ class DestroyableWall(MapObject):
             else:
                 self.remove_from_sprite_lists()
         self.update_colour()
-        SoundsManager.play("destroy")
+        SoundsManager.play_sound("destroy")
 
     def update_colour(self):
         if self.health == 2:

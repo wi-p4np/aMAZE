@@ -14,7 +14,7 @@ class DoorKey(MapObject):
     def on_hit(self):
         event_name = "ON_DOOR_{}_OPEN".format(self.door_id)
         EventManager.emit(event_name)
-        SoundsManager.play("door")
+        SoundsManager.play_sound('coins')
         self.remove_from_sprite_lists()
 
     def update(self, delta_time):
