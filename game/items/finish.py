@@ -8,6 +8,6 @@ class Finish(MapObject):
         super().__init__(asset_path, scale, x, y, properties)
 
     def on_hit(self):
-        ScoreManager.gameIsActive = False
+        ScoreManager.game_is_active = False
         SoundsManager.play_sound("win")
         print("I've finished the level")

@@ -1,3 +1,5 @@
+from game.managers.score_manager import ScoreManager
+
 
 class SceneManager:
     game = None
@@ -5,11 +7,14 @@ class SceneManager:
     @staticmethod
     def setup(game):
         SceneManager.game = game
+        SceneManager.map = "./maps/template.tmx"
 
     @staticmethod
     def restart(game):
+        ScoreManager.score = 0
+        ScoreManager.gem_score = 0
+        ScoreManager.health = 3
         SceneManager.game.change_scene('game')
-        SceneManager.game = game.Mygame()
 
 
     @staticmethod

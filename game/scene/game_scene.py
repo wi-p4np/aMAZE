@@ -12,6 +12,7 @@ from game.enemies.shooting_enemy import ShootingEnemy
 from game.camera.camera import Camera
 from game.scene.scene import Scene
 from game.managers.sounds_manager import SoundsManager
+from game.managers.scene_manager import SceneManager
 
 
 class GameScene(Scene):
@@ -34,7 +35,7 @@ class GameScene(Scene):
 
     def setup(self):
         self.bullet_controller = BulletController(self)
-        self.map = Map.load(self, "./maps/template.tmx")
+        self.map = Map.load(self, SceneManager.map)
         self.players_list = arcade.SpriteList()
         self.players_list.append(self.player)
         self.player_physics_engine = PhysicsEngineSimple(self.player)
@@ -68,7 +69,7 @@ class GameScene(Scene):
     def update(self, delta_time):
         self.gui.update(delta_time)
 
-        if ScoreManager.gameIsActive:
+        if ScoreManager.game_is_active:
             self.update_game(delta_time)
 
     def update_game(self, delta_time):

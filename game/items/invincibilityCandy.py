@@ -9,8 +9,8 @@ class InvincibilityCandy(MapObject):
         super().__init__(asset_path, scale, x, y, properties)
 
     def on_hit(self):
-        ScoreManager.invincibilityTimer = MAX_INVINCIBILITY_TIMER
-        ScoreManager.isInvincible = True
+        ScoreManager.invincibility_timer = MAX_INVINCIBILITY_TIMER
+        ScoreManager.is_invincible = True
         SoundsManager.play_sound("invincible")
         super().on_hit()
 

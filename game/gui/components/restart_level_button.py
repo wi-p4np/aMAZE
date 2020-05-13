@@ -24,13 +24,11 @@ class RestartButton(Button):
         if self.window.visible:
             self.pressed = True
             self.window.visible = True
-            ScoreManager.score = 0
-            ScoreManager.gem_score = 0
-            ScoreManager.health = 3
 
     def on_release(self):
         if self.pressed:
             self.pressed = False
             self.window.visible = False
-            ScoreManager.pauseWindowIsActive = False
+            ScoreManager.pause_window_is_active = False
             SceneManager.restart(SceneManager.game)
+

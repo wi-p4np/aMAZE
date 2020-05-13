@@ -46,12 +46,12 @@ class MyGui:
         self.on_update(delta_time)
 
     def on_update(self, delta_time):
-        if ScoreManager.pauseWindowIsActive:
-            ScoreManager.gameIsActive = False
+        if ScoreManager.pause_window_is_active:
+            ScoreManager.game_is_active = False
         else:
-            ScoreManager.gameIsActive = True
+            ScoreManager.game_is_active = True
         if ScoreManager.health <= 0:
-           ScoreManager.gameIsActive = False
+           ScoreManager.game_is_active = False
 
     def on_mouse_press(self, x, y, button, modifiers):
         self.pause_view.on_mouse_press(x, y, button, modifiers)

@@ -14,11 +14,11 @@ class InvincibilityCandyBar():
         self.candy_sprite.center_y = 600
 
     def update(self, deltaTime):
-        if ScoreManager.invincibilityTimer > 0:
-            ScoreManager.invincibilityTimer = ScoreManager.invincibilityTimer - deltaTime
-            if ScoreManager.invincibilityTimer <= 0:
-                ScoreManager.isInvincible = False
+        if ScoreManager.invincibility_timer > 0:
+            ScoreManager.invincibility_timer = ScoreManager.invincibility_timer - deltaTime
+            if ScoreManager.invincibility_timer <= 0:
+                ScoreManager.is_invincible = False
 
     def draw(self):
-        if ScoreManager.isInvincible:
+        if ScoreManager.is_invincible:
             self.candy_sprite.draw()

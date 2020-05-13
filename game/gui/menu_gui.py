@@ -21,6 +21,7 @@ class MenuGui:
         self.levels_panel.add_component(PauseBackground())
         self.menu_panel.add_component(SelectLevelButton(self.levels_panel, self.menu_panel, SCREEN_WIDTH / 2, 300))
         self.levels_panel.add_component(BackToMenu(self.levels_panel, self.menu_panel, 910, 600))
+        self.levels_panel.add_levels_buttons()
         self.settings_panel = SettingsPanel()
         self.settings_panel.add_component(PauseBackground())
         self.menu_panel.add_component(SettingsButton(self.settings_panel, self.menu_panel, SCREEN_WIDTH / 2, 350))

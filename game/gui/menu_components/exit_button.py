@@ -22,7 +22,7 @@ class ExitButton(Button):
     def on_press(self):
         self.pressed = True
         self.parent_window.visible = False
-        ScoreManager.gameIsActive = False
+        ScoreManager.game_is_active = False
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
         print('game closed')
 

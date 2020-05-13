@@ -1,6 +1,7 @@
 import arcade
 from game.gui.components.button import Button
 from game.managers.scene_manager import SceneManager
+from game.managers.score_manager import ScoreManager
 
 BUTTON_SPRITE = 'assets/sprites/UI/grey_button01.png'
 SCALING = 0.8
@@ -19,4 +20,8 @@ class StartButton(Button):
 
     def on_press(self):
         self.pressed = True
+        ScoreManager.pause_window_is_active = False
+        ScoreManager.score = 0
+        ScoreManager.gem_score = 0
+        ScoreManager.health = 3
         SceneManager.change_scene('game')

@@ -22,7 +22,7 @@ class PauseButton(Button):
     def on_press(self):
         if not self.window.visible:
             self.pressed = True
-            ScoreManager.pauseWindowIsActive = True
+            ScoreManager.pause_window_is_active = True
             self.window.visible = True
 
 

@@ -83,12 +83,12 @@ class Player(arcade.AnimatedTimeSprite):
             self.play_animation("idle_down")
 
     def on_hit(self):
-        if not ScoreManager.isInvincible:
+        if not ScoreManager.is_invincible:
             self.center_x = self.initial_x
             self.center_y = self.initial_y
             ScoreManager.health -= 1
         if ScoreManager.health <= 0:
-            ScoreManager.deathWindowIsActive = True
+            ScoreManager.death_window_is_active = True
 
     def update(self):
         self.update_animation()

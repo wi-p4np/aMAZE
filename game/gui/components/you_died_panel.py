@@ -15,7 +15,7 @@ class YouDiedPanel(GUIPanel):
         self.text_settings = {'x': 350, 'y': 300, 'color': arcade.csscolor.WHITE_SMOKE, 'font_size': 50}
 
     def update(self):
-        if ScoreManager.deathWindowIsActive:
+        if ScoreManager.death_window_is_active:
             self.visible = True
             for component in self.components:
                 component.update()
