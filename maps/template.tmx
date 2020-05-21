@@ -302,6 +302,6 @@
     <property name="name" value=""/>
    </properties>
   </object>
-  <object id="53" type="Player" gid="44" x="149.003" y="1100.89" width="64" height="64"/>
+  <object id="53" type="Player" gid="44" x="165" y="1090" width="64" height="64"/>
  </objectgroup>
 </map>

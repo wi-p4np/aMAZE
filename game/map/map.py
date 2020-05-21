@@ -102,7 +102,7 @@ class Map:
                 _map.objects_layer.append(heart)
 
             elif tile.type == "Player":
-                player = Player(TILE_SCALE, tile.x * TILE_SCALE, tile.y * TILE_SCALE)
+                player = Player(tile.x * TILE_SCALE, tile.y * TILE_SCALE)
                 game.player = player
 
             else:

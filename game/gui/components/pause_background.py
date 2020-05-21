@@ -13,7 +13,7 @@ class PauseBackground(GUIComponent):
         self.icon = arcade.Sprite(PAUSE_BACKGROUND)
         self.icon.height = SCREEN_HEIGHT
         self.icon.width = SCREEN_WIDTH
-        self.icon.alpha = 400
+        self.icon.alpha = 105
         self.icon.center_y = center_y
         self.icon.center_x = center_x
 

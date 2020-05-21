@@ -23,8 +23,8 @@ class HealthBar(GUIComponent):
         super().__init__(center_x, center_y)
 
         textures = [
-            arcade.load_texture(SPRITES['half'], scale=HEARTS_SCALING),
-            arcade.load_texture(SPRITES['empty'], scale=HEARTS_SCALING)
+            arcade.load_texture(SPRITES['half']),
+            arcade.load_texture(SPRITES['empty'])
         ]
 
         self.hearts_list = arcade.SpriteList()
