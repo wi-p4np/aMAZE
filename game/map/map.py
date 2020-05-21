@@ -133,3 +133,4 @@ class Map:
                 _map.objects_layer.append(sprite)
 
         return _map
+

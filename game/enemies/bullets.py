@@ -7,7 +7,6 @@ from game.managers.sounds_manager import SoundsManager
 class Bullet(arcade.Sprite):
     def __init__(self, parent, asset_path, x, y, change_x, change_y, speed):
         super().__init__(asset_path, BULLET_SCALE)
-
         self.parent = parent
         self.center_x = x
         self.center_y = y

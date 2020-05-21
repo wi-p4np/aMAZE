@@ -82,10 +82,7 @@ class GameScene(Scene):
 
         self.player_physics_engine.update()
 
-        #self.following_enemy.update(delta_time)
         self.camera.update(delta_time)
-        #self.bullet_controller.update(delta_time)
-        #self.shooting_enemy.update(delta_time)
 
         self.player_physics_engine.check(self.map.walls_layer)
 
