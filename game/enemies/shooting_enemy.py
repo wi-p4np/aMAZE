@@ -4,16 +4,16 @@ from game.managers.score_manager import ScoreManager
 from game.consts import SHORT_DISTANCE_MIN
 from game.consts import SHOOTING_DISTANCE_MIN
 from game.consts import SHOOTING_DISTANCE_MAX
-from game.physics import PhysicsEngineSimple
 from game.managers.sounds_manager import SoundsManager
 
 
 class ShootingEnemy(FollowingEnemy):
-    def __init__(self, parent, asset_path, scale, x, y, properties, bullet_controller):
-        super().__init__(parent, asset_path, scale, x, y, properties)
+    def __init__(self, map, asset_path, scale, x, y, properties, bullet_controller):
+        super().__init__(map, asset_path, scale, x, y, properties)
 
         self.shooting_timer = 0
         self.bullet_controller = bullet_controller
+        self.map = map
 
     def update(self, delta_time):
         _x = ScoreManager.playerX - self.center_x
@@ -29,13 +29,20 @@ class ShootingEnemy(FollowingEnemy):
                 if self.shooting_timer <= 0:
                     self.bullet_controller.shoot_bullet(self.center_x, self.center_y, _x / d, _y / d, 3)
                     self.shooting_timer = 2
-                    SoundsManager.play('shooting')
+                    SoundsManager.play_sound('shooting')
 
             if d <= SHOOTING_DISTANCE_MIN:
                 self.change_x = _x * self.speed / d
                 self.change_y = _y * self.speed / d
 
-        self.physics_engine.check(self.parent.map.walls_layer)
+        self.physics_engine.check(self.map.walls_layer)
+        self.physics_engine.check(self.map.collidable_objects_layer)
 
         self.physics_engine.resolve()
         self.physics_engine.update()
+
+        self.bullet_controller.update(delta_time)
+
+    def draw(self):
+        self.bullet_controller.draw()
+        super().draw()
