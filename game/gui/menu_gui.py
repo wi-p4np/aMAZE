@@ -8,6 +8,8 @@ from game.gui.menu_components.exit_button import ExitButton
 from game.gui.menu_components.back_to_menu_button import BackToMenu
 from game.gui.components.pause_background import PauseBackground
 from game.consts import SCREEN_WIDTH
+from game.gui.menu_components.music_settings_button import MusicButton
+from game.gui.menu_components.sounds_settings_button import SoundsButton
 
 
 class MenuGui:
@@ -25,6 +27,8 @@ class MenuGui:
         self.settings_panel.add_component(PauseBackground())
         self.menu_panel.add_component(SettingsButton(self.settings_panel, self.menu_panel, SCREEN_WIDTH / 2, 350))
         self.settings_panel.add_component(BackToMenu(self.settings_panel, self.menu_panel, 910, 600))
+        self.settings_panel.add_component(MusicButton(self.settings_panel, 350, 280))
+        self.settings_panel.add_component(SoundsButton(self.settings_panel, 580, 280))
 
     def draw(self):
         self.menu_panel.draw()
